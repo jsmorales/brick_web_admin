@@ -1,4 +1,7 @@
-<?php 
+<?php
+    
+    //include('../controller/indexController.php');
+
     $nombre = $_COOKIE["log_brick_nombre"];
     $alias = $_COOKIE["log_brick_alias"];
     $tipo = $_COOKIE["log_brick_tipo"];

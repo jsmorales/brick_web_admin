@@ -7,7 +7,7 @@
 
 	$va_para = '/var/www/html/brick_web_admin/vistas/subidas/';
 
-	if(isset($_FILES["imagen_sube"])){
+	if( isset($_FILES['imagen_sube']) ){
 
 		$subida = new sube_imagen($_FILES["imagen_sube"],$va_para);
 

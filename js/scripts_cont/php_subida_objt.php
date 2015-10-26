@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+	error_reporting(0); 
 
 	class sube_imagen {
 
@@ -63,7 +65,7 @@
         	//asigna variables del archivo
         	$this->nombre = $this->archivo["name"];
         	$this->tipo = $this->archivo["type"];
-        	$this->ruta_temporal = $this->archivo["tmp_name"];
+        	
         	$this->tamano = $this->archivo["size"];
         	$this->dimensiones = getimagesize($this->ruta_temporal);
         	$this->alto = $this->dimensiones[1];
@@ -71,6 +73,14 @@
 
         	$this->origen = $this->ruta_temporal;
         	$this->destino = $this->destino.$this->nombre;
+
+        	$this->ruta_temporal = $this->archivo["tmp_name"];
+
+        	/*if( $this->archivo["tmp_name"] ){
+
+        	}else{
+
+        	}*/
 
 
         }
