@@ -1,9 +1,4 @@
 <?php
-/**
- * Description of GenericoDAO
- * Todos los demás DAO deben heredar esta clase 
- * @author Ing Ricardo Umbarila Torres
- */
 
 include_once '../Conexion/Conexion.php';
 
