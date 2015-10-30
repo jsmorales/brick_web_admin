@@ -47,6 +47,14 @@
 	        }
 	    }
 
+	    //-------------------------------------------------------------------
+	    //funcion para validar el perfil de usuario
+	    public function valida_perfil(){
+
+	    	return $this->tipo;
+	    }
+	    //-------------------------------------------------------------------
+
 	    public function mensaje_error(){
 
 	    	echo '<script language="JavaScript"> alert("Usuario no identificado, por favor identifíquese."); window.location = "login.php"; </script>';

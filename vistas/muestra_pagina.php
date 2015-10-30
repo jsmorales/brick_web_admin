@@ -16,10 +16,10 @@ include "scripts_cont.php";
             $this->script = new scripts_pag();
         }
         //------------------------------------------------------------
-        private function muestra_encabezado(){
+        private function muestra_encabezado($perfil){
 
             include "encabezado_admin.php";
-            include "menu_admin.php";
+            include "menu_".$perfil.".php";
         }
 
         private function muestra_pie(){
@@ -54,7 +54,7 @@ include "scripts_cont.php";
 
                 //muestra las paginas de administrador
                 //-----------------------------------------------------------
-                $this->muestra_encabezado();
+                $this->muestra_encabezado($this->valida_perfil());
 				//include "menu_lateral.php";
                 //-----------------------------------------------------------                
 
@@ -80,9 +80,11 @@ include "scripts_cont.php";
 
             if($valores_login == true){
 
+                echo "el perfil de usuario es: ".$this->valida_perfil();
+
                 //muestra las paginas de administrador
                 //-----------------------------------------------------------
-                $this->muestra_encabezado();
+                $this->muestra_encabezado($this->valida_perfil());
                 //include "menu_lateral.php";
                 //-----------------------------------------------------------                
 
