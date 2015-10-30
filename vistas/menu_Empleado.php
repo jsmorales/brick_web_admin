@@ -28,7 +28,7 @@
                         <a href="blog.html">Cotizaciones</a>
                     </li>                    
                     <li>
-                        <a href="contact.html">Coño_empleado</a>
+                        
                     </li>                    
                 </ul>
             </div>

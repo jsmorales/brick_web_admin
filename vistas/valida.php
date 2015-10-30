@@ -53,11 +53,22 @@
 
 	    	return $this->tipo;
 	    }
+
+	    public function valida_entrada_perfil($perfiles_in,$perfil_actual){
+
+	    	//Devuelve TRUE si needle se encuentra en el array, FALSE de lo contrario.
+
+	    	if(in_array($perfil_actual, $perfiles_in)){
+	    		return "true";
+	    	}else{
+	    		return "false";
+	    	}	    	 
+	    }
 	    //-------------------------------------------------------------------
 
 	    public function mensaje_error(){
 
-	    	echo '<script language="JavaScript"> alert("Usuario no identificado, por favor identifíquese."); window.location = "login.php"; </script>';
+	    	echo '<script language="JavaScript"> alert("Usuario no identificado, por favor identifíquese."); history.back(1); //window.location = "login.php"; </script>';
 
 	    }
 

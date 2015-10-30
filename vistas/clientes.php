@@ -7,7 +7,8 @@
 	//---------------------------------------------------------
 	$pagina = "cont_clientes.php";
 	$scripts = array('cont_clientes.js');
+	$perfiles_in = array('Administrador','Empleado');
 	//---------------------------------------------------------
 
-	$muestra_clientes->mostrar_pagina_scripts($pagina,$scripts);
+	$muestra_clientes->mostrar_pagina_scripts($pagina,$scripts,$perfiles_in);
  ?>

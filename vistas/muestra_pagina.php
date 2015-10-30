@@ -74,13 +74,22 @@ include "scripts_cont.php";
             
         }
         //-----------------------------------------
-        public function mostrar_pagina_scripts($pagina,$arr_script){
+        public function mostrar_pagina_scripts($pagina,$arr_script,$perfiles_in){
+           
 
             $valores_login = $this->valida_vals();
 
-            if($valores_login == true){
+            $perfil_actual = $this->valida_perfil();
 
-                echo "el perfil de usuario es: ".$this->valida_perfil();
+            //echo "validando".$perfiles_in." y ".$perfil_actual;
+
+            $valida_entrada = $this->valida_entrada_perfil($perfiles_in,$perfil_actual);
+
+            if( ($valores_login == true) && ($valida_entrada === "true") ){
+
+                //echo "el perfil de usuario es: ".$perfil_actual;
+
+                //echo "aca puede entrar? ".$valida_entrada;
 
                 //muestra las paginas de administrador
                 //-----------------------------------------------------------
