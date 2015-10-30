@@ -91,7 +91,7 @@ $(function(){
           //---------------------
           console.log(data);
           alert(data[0].mensaje);
-          //location.reload();          
+          location.reload();          
         })
         .fail(function(data) {
           console.log(data);
@@ -155,7 +155,7 @@ $(function(){
             //---------------------
             console.log(data[0].mensaje);
             alert(data[0].mensaje);
-            //location.reload();
+            location.reload();
         })
         .fail(function() {
             console.log("error");
@@ -323,7 +323,7 @@ $(function(){
   //--------------------------------------------
   $("#form_modal_materiales").on('hidden.bs.modal', function (e) {
     // do something...
-    location.reload();
+    //location.reload();
   });
   //--------------------------------------------
 
@@ -426,6 +426,6 @@ $(function(){
     agrega_propiedad();
   });
 
-	//---------------------------------------------------------
+  //---------------------------------------------------------
 
 });

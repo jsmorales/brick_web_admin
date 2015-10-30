@@ -8,7 +8,7 @@
 
         console.log("El id de la tabla es: "+nombre_tabla);
 
-        $('#'+nombre_tabla).DataTable(
+        var table = $('#'+nombre_tabla).DataTable(
 
             {
                 //"order": [[ 1, "asc" ]], //ordenando por nombre asc
@@ -42,3 +42,7 @@
             }
 
         );
+
+        setTimeout(function(){
+            table.page.len( 5 ).draw();
+        }, 1000);

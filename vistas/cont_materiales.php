@@ -181,6 +181,8 @@
                     </table>
         		    <!-- /tabla de materiales -->
         		    <button id="btn_nuevoMaterial" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_materiales"><span class="glyphicon glyphicon-plus"></span>&nbspCrear Material</button> 
+                    <!--  
+                    <button id="btn_pagina">Paginar</button>-->
                 </div>
 
                <!-- /box --> 
