@@ -22,11 +22,11 @@
                         <a href="materiales.php">Materiales</a>
                     </li>
                     <li>
-                        <a href="blog.html">Cotizaciones</a>
+                        <a href="clientes.php">Clientes</a>
                     </li>
                     <li>
-                        <a href="blog.html">Catálogo</a>
-                    </li>
+                        <a href="blog.html">Cotizaciones</a>
+                    </li>                    
                     <li>
                         <a href="contact.html">Contacto</a>
                     </li>                    

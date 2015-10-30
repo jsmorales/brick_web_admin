@@ -1,6 +1,6 @@
 <?php
     
-    //include('../controller/indexController.php');
+    include('../controller/indexController.php');
 
     $nombre = $_COOKIE["log_brick_nombre"];
     $alias = $_COOKIE["log_brick_alias"];
@@ -43,7 +43,12 @@
 </head>
 
 <body>
+
+    <?php  
+
+        $encabezado = new indexController();
+
+        $encabezado->titulo_encabezado();
+    ?>
     
-    <div class="brand">La Súper 7 Administrador</div>
-    <div class="address-bar"> Esto es un Slogan | Dirección calle #123 | Número de teléfono | Ubicación</div>
     <div class="address-bar"><span class="glyphicon glyphicon-user"></span>  <?php echo $nombre." | ".$tipo; ?> | <a class="logout-link" href="../controller/logout.php">Salir</a> </div>

@@ -201,3 +201,12 @@ footer p {
     text-decoration: underline;
 }
 
+.logo_svg {
+    position: absolute;
+    width: 120px;
+    margin-left: -18%;
+    /* margin-right: -900px; */
+    margin-top: -25px;
+    display: inline-block;
+}
+
