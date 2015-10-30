@@ -68,7 +68,11 @@
 
 	    public function mensaje_error(){
 
-	    	echo '<script language="JavaScript"> alert("Usuario no identificado, por favor identifíquese."); history.back(1); //window.location = "login.php"; </script>';
+	    	if($this->valida_vals() == true){
+	    		echo '<script language="JavaScript"> alert("Usuario no identificado, por favor identifíquese."); history.back(1); //window.location = "login.php"; </script>';
+	    	}else{
+	    		echo '<script language="JavaScript"> alert("Usuario no identificado, por favor identifíquese."); window.location = "login.php"; </script>';
+	    	}    	
 
 	    }
 
