@@ -20,6 +20,9 @@
 
     <title>La Súper 7 admin</title>
 
+    <!-- iconos -->
+    <link href="../css/iconos/flaticon.css" rel="stylesheet">
+
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
