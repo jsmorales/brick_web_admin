@@ -23,6 +23,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="num_cc" class="col-sm-2 control-label">Número de Identificación</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="num_cc" name="num_cc" placeholder="Número de Cédula o identificación del Cliente" required = "true">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="nombres" class="col-sm-2 control-label">Nombres</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres del Cliente" required = "true">
@@ -90,6 +97,7 @@
                                 <thead>
                                     <tr>
                                         <th>ID Cliente</th>
+                                        <th>Número de Identificación</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Teléfono</th>

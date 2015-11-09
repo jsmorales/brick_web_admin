@@ -21,6 +21,7 @@
 	    		for($a=0;$a<sizeof($this->clientes);$a++){
 
                  $id = $this->clientes[$a]["pkID"];
+                 $cc = $this->clientes[$a]["num_cc"];
                  $nombre = $this->clientes[$a]["nombres"];
                  $apellidos = $this->clientes[$a]["apellidos"];
                  $telefono = $this->clientes[$a]["telefono"];
@@ -30,13 +31,14 @@
                  echo '
                              <tr>
                                  <td>'.$id.'</td>
+                                 <td>'.$cc.'</td>
                                  <td>'.$nombre.'</td>
                                  <td>'.$apellidos.'</td>                                                    
                                  <td>'.$telefono.'</td>
                                  <td>'.$direccion.'</td>
                                  <td>'.$email.'</td>
 		                         <td>
-		                             <button id="btn_editar" name="edita_cliente" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_clientes" data-id-material = "'.$id.'" ><span class="glyphicon glyphicon-pencil"></span>&nbspEditar</button>
+		                             <button id="btn_editar" name="edita_cliente" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_clientes" data-id-cliente = "'.$id.'" ><span class="glyphicon glyphicon-pencil"></span>&nbspEditar</button>
 		                             <br><br>
 		                             <button id="btn_eliminar" name="elimina_cliente" type="button" class="btn btn-danger" data-id-cliente = "'.$id.'" ><span class="glyphicon glyphicon-remove"></span>&nbspEliminar</button>
 		                         </td>
@@ -47,6 +49,7 @@
 	    	}else{
 
              echo "<tr>
+		               <td></td>
 		               <td></td>
 		               <td></td>
 		               <td></td>
