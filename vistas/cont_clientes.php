@@ -91,31 +91,33 @@
         		    <hr>
                     <br>
 
+                    <div class="table-responsive">
                     <!-- tabla de clientes -->
-                    <table id="tabla_clientes" class="table table-bordered table-hover table-striped">
+                        <table id="tabla_clientes" class="table table-bordered table-hover table-striped">
 
-                                <thead>
-                                    <tr>
-                                        <th>ID Cliente</th>
-                                        <th>Número de Identificación</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>Teléfono</th>
-                                        <th>Dirección</th>
-                                        <th>Email</th>                                        
-                                        <th>Opciones</th>
-                                    </tr>
-                                </thead>
+                                    <thead>
+                                        <tr>
+                                            <th>ID Cliente</th>
+                                            <th>Número de Identificación</th>
+                                            <th>Nombres</th>
+                                            <th>Apellidos</th>
+                                            <th>Teléfono</th>
+                                            <th>Dirección</th>
+                                            <th>Email</th>                                        
+                                            <th>Opciones</th>
+                                        </tr>
+                                    </thead>
 
-                                <tbody>
-                                    <?php                                       
+                                    <tbody>
+                                        <?php                                       
 
-                                        $clientes->getTablaClientes();
+                                            $clientes->getTablaClientes();
 
-                                     ?>
-                                </tbody>
-                    </table>
-                    <!-- /tabla de materiales -->
+                                         ?>
+                                    </tbody>
+                        </table>
+                        <!-- /tabla de materiales -->
+                    </div>
                     <button id="btn_nuevoCliente" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_clientes"><span class="glyphicon glyphicon-plus"></span>&nbspCrear Cliente</button> 
 
                 </div>

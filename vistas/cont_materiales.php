@@ -155,30 +155,31 @@
                     <h1 class="text-center">Materiales</h1>
         		    <hr>
                     <br>
+                    <div class="table-responsive">
+            		    <!-- tabla de materiales -->
+            		    <table id="tabla_materiales" class="table table-bordered table-hover table-striped">
 
-        		    <!-- tabla de materiales -->
-        		    <table id="tabla_materiales" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Material</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Marca</th>
+                                            <th>Imagen</th>
+                                            <th>Propiedades</th>										
+    										<th>Opciones</th>
+                                        </tr>
+                                    </thead>
 
-                                <thead>
-                                    <tr>
-                                        <th>ID Material</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
-                                        <th>Marca</th>
-                                        <th>Imagen</th>
-                                        <th>Propiedades</th>										
-										<th>Opciones</th>
-                                    </tr>
-                                </thead>
+                                    <tbody>
+                                    	<?php                               		
 
-                                <tbody>
-                                	<?php                               		
+                                            $materialesinst->getTablaMateriales();
 
-                                        $materialesinst->getTablaMateriales();
-
-                                	 ?>
-                                </tbody>
-                    </table>
+                                    	 ?>
+                                    </tbody>
+                        </table>
+                    </div>
         		    <!-- /tabla de materiales -->
         		    <button id="btn_nuevoMaterial" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_materiales"><span class="glyphicon glyphicon-plus"></span>&nbspCrear Material</button> 
                     <!--  
