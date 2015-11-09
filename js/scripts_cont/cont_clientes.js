@@ -126,6 +126,40 @@ $(function(){
     };
     //cierra funcion edita_cliente
 
+    function elimina_cliente(id_cliente){
+
+	    console.log('Eliminar el cliente: '+id_cliente);
+
+	    var confirma = confirm("En realidad quiere eliminar este cliente?");
+
+	    console.log(confirma);
+	    /**/
+	    if(confirma == true){
+	      //si confirma es true ejecuta ajax
+	      $.ajax({
+	            url: '../controller/ajaxController12.php',
+	            data: "pkID="+id_cliente+"&tipo=eliminar&nom_tabla=cliente",
+	        })
+	        .done(function(data) {            
+	            //---------------------
+	            console.log(data);
+
+	            alert(data.mensaje.mensaje);
+	            
+	            location.reload();
+	        })
+	        .fail(function() {
+	            console.log("error");
+	        })
+	        .always(function() {
+	            console.log("complete");
+	        });
+	    }else{
+	      //no hace nada
+	    }
+    };
+    //cierra funcion eliminar cliente
+
 	//---------------------------------------------------------
 	//ejecución
 	//-------------------------------------------------------------------------------
@@ -166,7 +200,7 @@ $(function(){
 	    /* Act on the event */
 	    id_cliente = $(this).attr('data-id-cliente');
 
-	    //elimina_cliente(id_cliente);
+	    elimina_cliente(id_cliente);
 
 	  });
 
