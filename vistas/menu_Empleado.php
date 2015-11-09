@@ -25,7 +25,7 @@
                         <a href="clientes.php">Clientes</a>
                     </li>
                     <li>
-                        <a href="blog.html">Cotizaciones</a>
+                        <a href="#">Cotizaciones</a>
                     </li>                    
                     <li>
                         
