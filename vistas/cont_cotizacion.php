@@ -40,7 +40,7 @@
                         <div class="col-sm-10">                                                            
                         <?php                        
                         echo '<select name="selectLadrillo" id="selectLadrillo" class="form-control" required = "true">
-                                <option>Seleccione un Ladrillo</option>'; 
+                                <option></option>'; 
                                     $ladrilloSelect = $materialesinst->getLadrillos();
                                     for ($i=0; $i < sizeof($ladrilloSelect); $i++) {
                                         echo '<option value="'.$ladrilloSelect[$i]["pkID"].'" data-precio="'.$ladrilloSelect[$i]["precio"].'">'.$ladrilloSelect[$i]["nombre"].'</option>';
@@ -59,7 +59,7 @@
                         <div class="col-sm-10">                                                            
                         <?php                        
                         echo '<select name="selectCemento" id="selectCemento" class="form-control" required = "true">
-                                <option>Seleccione Cemento</option>'; 
+                                <option></option>'; 
                                     $cementoSelect = $materialesinst->getCemento();
                                     for ($i=0; $i < sizeof($cementoSelect); $i++) {
                                         echo '<option value="'.$cementoSelect[$i]["pkID"].'" data-precio="'.$cementoSelect[$i]["precio"].'">'.$cementoSelect[$i]["nombre"].'</option>';

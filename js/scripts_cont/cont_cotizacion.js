@@ -204,7 +204,7 @@ $(function(){
 		objt_f_calculaP = $("#form_calc_cotiza").valida();
 	    console.log(objt_f_calculaP);	    
 
-	    if ( (objt_f_calculaP.estado == true) & ( ($("#ancho").val() != undefined) || ($("#alto").val() != undefined) ) ){
+	    if ( (objt_f_calculaP.estado == true) & ( ($("#ancho").val() != undefined) & ($("#alto").val() != undefined) & ($("#peso").val() != undefined) ) ){
 	    	//-----------------------------------------------------------------------
 	    	//calculo
 	    	alt_par = $("#altoP").val();
@@ -296,7 +296,7 @@ $(function(){
 	   		$("#total_cotiza").val(total_cotiza);
 	    	//-----------------------------------------------------------------------
 	    }else{
-	    	alert("Por favor complete los campos para poder hacer el cálculo, asegúrese de seleccionar un ladrillo que contenga las propiedades válidas.");
+	    	alert("Por favor complete los campos para poder hacer el cálculo, asegúrese de seleccionar un ladrillo y un cemento que contenga las propiedades válidas.");
 	    };
 	}
 
