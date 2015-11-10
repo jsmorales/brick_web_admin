@@ -68,6 +68,20 @@
                     <div class="form-group" hidden>                    
                         <input type="text" id="imagen" name="imagen" value="" class="form-control" required = "true">
                     </div>
+                    <div class="form-group">
+                        <label for="clase" class="col-sm-2 control-label">Clase</label>
+                        <div class="col-sm-10">
+                            <select name="fkID_clase" id="fkID_clase" class="form-control" required = "true">
+                                <option value="5">Seleccione una Clase</option>                                
+                                <?php 
+                                    $claseSelect = $materialesinst->getClase();
+                                    for ($i=0; $i < sizeof($claseSelect); $i++) {
+                                        echo '<option value="'.$claseSelect[$i]["pkID"].'">'.$claseSelect[$i]["nombre"].'</option>';
+                                    };
+                                 ?>
+                            </select>
+                        </div>                        
+                    </div>
 		    	</form>
 		    	<!-- /formulario 1 materiales -->
 		    </div>
@@ -166,7 +180,8 @@
                                             <th>Precio</th>
                                             <th>Marca</th>
                                             <th>Imagen</th>
-                                            <th>Propiedades</th>										
+                                            <th>Propiedades</th>
+                                            <th>Clase</th>										
     										<th>Opciones</th>
                                         </tr>
                                     </thead>

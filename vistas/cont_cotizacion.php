@@ -1,3 +1,10 @@
+<?php 
+
+    include("../controller/materialesController.php");
+
+    $materialesinst = new MaterialesController();
+
+ ?>
 <!-- form modal -->
 <div id="frm_calcula_pared" class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="gridSystemModalLabel">
   <div class="modal-dialog" role="document">
@@ -14,20 +21,70 @@
 
             <br>              
                 <div class="input-group">
-                  <label for="alto" class="input-group-addon">Alto</label>
-                  <input type="number" class="form-control" id="alto" name="alto" placeholder="Alto de la pared en metros" required = "true">
+                  <label for="altoP" class="input-group-addon">Alto</label>
+                  <input type="number" class="form-control" id="altoP" name="altoP" placeholder="Alto de la pared en metros" required = "true">
                   <div class="input-group-addon">M</div>
                 </div>
                 <br>
                 <div class="input-group">
-                  <label for="ancho" class="input-group-addon">Ancho</label>
-                  <input type="number" class="form-control" id="ancho" name="ancho" placeholder="Ancho de la pared en metros" required = "true">
+                  <label for="anchoP" class="input-group-addon">Ancho</label>
+                  <input type="number" class="form-control" id="anchoP" name="anchoP" placeholder="Ancho de la pared en metros" required = "true">
                   <div class="input-group-addon">M</div>
                 </div>
+            <br>
+            <h4 class="text-center">Ladrillo</h4>
+            <hr>
+
+                    <div class="form-group">
+                        <label for="selectLadrillo" class="col-sm-2 control-label">Ladrillo</label>
+                        <div class="col-sm-10">                                                            
+                        <?php                        
+                        echo '<select name="selectLadrillo" id="selectLadrillo" class="form-control" required = "true">
+                                <option>Seleccione un Ladrillo</option>'; 
+                                    $ladrilloSelect = $materialesinst->getLadrillos();
+                                    for ($i=0; $i < sizeof($ladrilloSelect); $i++) {
+                                        echo '<option value="'.$ladrilloSelect[$i]["pkID"].'" data-precio="'.$ladrilloSelect[$i]["precio"].'">'.$ladrilloSelect[$i]["nombre"].'</option>';
+                                    };
+                        echo '</select>';
+                        ?>                            
+                        </div>                        
+                    </div>                    
+                    <div id="loadPropiedades"></div>
+            <br>
+            <h4 class="text-center">Mezcla</h4>
+            <hr>
+
+            <div class="input-group">
+              <label for="grosorMezcla" class="input-group-addon">Grosor de la mezcla</label>
+              <input type="number" class="form-control" id="grosorMezcla" name="grosorMezcla" value="1.5">
+              <div class="input-group-addon">cm</div>
+            </div>
+
         </form>
+            
+            <div id="resultadosCalculo" hidden="">
+
+              <br>
+              <h4 class="text-center">Total ladrillos</h4>
+              <hr>
+
+              <div class="input-group">
+                <label for="" class="input-group-addon">Cantidad</label>
+                <input type="number" class="form-control" id="total_lad" name="total_lad">
+                <div class="input-group-addon">Unidad(es)</div>
+              </div>
+              <br>
+              <div class="input-group">
+                <label for="precio_lad_total" class="input-group-addon">$</label>
+                <input type="number" class="form-control" id="precio_lad_total" name="precio_lad_total">
+                <div class="input-group-addon">Costo</div>
+              </div>
+
+            </div>
+
       </div>
       <div class="modal-footer">        
-        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Calcular</button>
+        <button id="btnCalcula" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Calcular</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

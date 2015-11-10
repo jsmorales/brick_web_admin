@@ -15,7 +15,7 @@
 		
 		public function getMateriales() {
 			$this->materialesDAO = new materiales();
-	        return $this->materialesDAO->getMateriales();
+	        return $this->materialesDAO->getMateriales1();
 	    }
 
 	    public function getMaterialId($q_material) {
@@ -42,6 +42,11 @@
 			$this->materialesDAO = new materiales();
 	        return $this->materialesDAO->getUmedida();
 	    }
+
+	    public function getClase() {
+			$this->materialesDAO = new materiales();
+	        return $this->materialesDAO->getClase();
+	    }
 	    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	    //---------------------------------------------------------------------------------
@@ -60,6 +65,7 @@
                  $precio = $this->materiales[$a]["precio"];
                  $marca = $this->materiales[$a]["marca"];
                  $imagen = $this->materiales[$a]["imagen"];
+                 $clase = $this->materiales[$a]["nom_clase"];
 
                  if ($imagen == NULL) {
                   	$imagen = "no_item.jpg";
@@ -91,6 +97,7 @@
                                     		</div>';
                                     };
                                  echo '</ul></td>
+                                 		<td>'.$clase.'</td>
 		                                 <td>
 		                                     <button id="btn_editar" name="edita_material" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_materiales" data-id-material = "'.$id.'" ><span class="glyphicon glyphicon-pencil"></span>&nbspEditar</button>
 		                                     <br><br>
@@ -116,6 +123,10 @@
 
 	    }
 	    //---------------------------------------------------------------------------------
+	    public function getLadrillos() {
+			$this->materialesDAO = new materiales();
+	        return $this->materialesDAO->getLadrillos();
+	    }
 	}
 
  ?>

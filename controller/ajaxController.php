@@ -17,7 +17,7 @@
 
 	 		$q_inserta = "insert INTO `material` (`pkID`, `nombre`, `precio`, `marca`, `imagen`, `fkID_clase`, `fkID_tipo`) 
 
-	 		VALUES (NULL, '".$_GET['nombre']."', '".$_GET['precio']."', '".$_GET['marca']."', '".$_GET['imagen']."', NULL, NULL);";
+	 		VALUES (NULL, '".$_GET['nombre']."', '".$_GET['precio']."', '".$_GET['marca']."', '".$_GET['imagen']."', '".$_GET['fkID_clase']."', NULL);";
 
 	 		//echo $q_inserta;
 
@@ -39,7 +39,7 @@
 		//----------------------------------------------------------------------------------------------------
 	 	case 'actualiza_material':	 		
 
-	 		$q_edita = "update `material` SET `nombre` = '".$_GET['nombre']."', `precio` = '".$_GET['precio']."', `marca` = '".$_GET['marca']."', `imagen` = '".$_GET['imagen']."' WHERE `material`.`pkID` =".$_GET['pkID'];	 		
+	 		$q_edita = "update `material` SET `nombre` = '".$_GET['nombre']."', `precio` = '".$_GET['precio']."', `marca` = '".$_GET['marca']."', `imagen` = '".$_GET['imagen']."', `fkID_clase` = '".$_GET['fkID_clase']."' WHERE `material`.`pkID` =".$_GET['pkID'];	 		
 
 	 		$resultado = $general->EjecutaActualizar($q_edita);
 	 		/*----------------------------------------------------*/
