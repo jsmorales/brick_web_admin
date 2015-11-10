@@ -23,13 +23,13 @@
                 <div class="input-group">
                   <label for="altoP" class="input-group-addon">Alto</label>
                   <input type="number" class="form-control" id="altoP" name="altoP" placeholder="Alto de la pared en metros" required = "true">
-                  <div class="input-group-addon">M</div>
+                  <div class="input-group-addon">Metros</div>
                 </div>
                 <br>
                 <div class="input-group">
                   <label for="anchoP" class="input-group-addon">Ancho</label>
                   <input type="number" class="form-control" id="anchoP" name="anchoP" placeholder="Ancho de la pared en metros" required = "true">
-                  <div class="input-group-addon">M</div>
+                  <div class="input-group-addon">Metros</div>
                 </div>
             <br>
             <h4 class="text-center">Ladrillo</h4>
@@ -48,8 +48,27 @@
                         echo '</select>';
                         ?>                            
                         </div>                        
-                    </div>                    
+                    </div>
                     <div id="loadPropiedades"></div>
+            <br>
+            <h4 class="text-center">Cemento</h4>
+            <hr>
+
+                    <div class="form-group">
+                        <label for="selectCemento" class="col-sm-2 control-label">Cemento</label>
+                        <div class="col-sm-10">                                                            
+                        <?php                        
+                        echo '<select name="selectCemento" id="selectCemento" class="form-control" required = "true">
+                                <option>Seleccione Cemento</option>'; 
+                                    $cementoSelect = $materialesinst->getCemento();
+                                    for ($i=0; $i < sizeof($cementoSelect); $i++) {
+                                        echo '<option value="'.$cementoSelect[$i]["pkID"].'" data-precio="'.$cementoSelect[$i]["precio"].'">'.$cementoSelect[$i]["nombre"].'</option>';
+                                    };
+                        echo '</select>';
+                        ?>                            
+                        </div>                        
+                    </div>                    
+                    <div id="loadPropiedadesCem"></div>
             <br>
             <h4 class="text-center">Mezcla</h4>
             <hr>
@@ -78,6 +97,36 @@
                 <label for="precio_lad_total" class="input-group-addon">$</label>
                 <input type="number" class="form-control" id="precio_lad_total" name="precio_lad_total">
                 <div class="input-group-addon">Costo</div>
+              </div>
+
+              <br>
+              <h4 class="text-center">Total Cemento</h4>
+              <hr>
+              <div class="input-group">
+                <label for="parcial_cem" class="input-group-addon">Estimado Parcial</label>
+                <input type="number" class="form-control" id="parcial_cem" name="parcial_cem">
+                <div class="input-group-addon">Kg</div>
+              </div>
+              <br>
+              <div class="input-group">
+                <label for="total_cem" class="input-group-addon">Cantidad</label>
+                <input type="number" class="form-control" id="total_cem" name="total_cem">
+                <div class="input-group-addon">Unidad(es)</div>
+              </div>
+              <br>
+              <div class="input-group">
+                <label for="precio_cem_total" class="input-group-addon">$</label>
+                <input type="number" class="form-control" id="precio_cem_total" name="precio_cem_total">
+                <div class="input-group-addon">Costo</div>
+              </div>
+
+              <br>
+              <h4 class="text-center">Total Costo</h4>
+              <hr>
+
+              <div class="input-group">
+                <label for="total_cotiza" class="input-group-addon">$</label>
+                <input type="number" class="form-control" id="total_cotiza" name="total_cotiza">                
               </div>
 
             </div>
