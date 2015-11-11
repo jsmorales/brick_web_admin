@@ -5,16 +5,30 @@
     $materialesinst = new MaterialesController();
 
  ?>
-<!-- form modal -->
-<div id="frm_calcula_pared" class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="gridSystemModalLabel">
+
+<!-- form modal 2-->
+<!-- Modal -->
+<div class="modal fade" id="frm_modal_cotizacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">Cálculo de Materiales para Pared</h4>
+        <h4 class="modal-title" id="myModalLabel">Cotización de Materiales</h4>
       </div>
       <div class="modal-body">
-        <form id="form_calc_cotiza" class="form-horizontal" method="POST">
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-modal" role="tablist">
+          <li role="presentation" class="active"><a href="#calcMateriales" aria-controls="calcMateriales" role="tab" data-toggle="tab">Cálculo de materiales</a></li>
+          <li role="presentation"><a href="#cotizacionGeneral" aria-controls="cotizacionGeneral" role="tab" data-toggle="tab">Cotización General</a></li>                    
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+
+          <div role="tabpanel" class="tab-pane active" id="calcMateriales">
+          <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+              <form id="form_calc_cotiza" class="form-horizontal" method="POST">
             
             <h4 class="text-center">Medidas Pared</h4>
             <hr>
@@ -120,6 +134,27 @@
                 <div class="input-group-addon">Costo</div>
               </div>
 
+              
+
+            </div>
+            <br>
+            <button id="btnCalcula" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Calcular</button>
+          <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="cotizacionGeneral">
+          <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+              <br>
+              <div class="input-group">                
+                <input type="text" class="form-control" id="fkID_usuario" name="fkID_usuario" value=<?php echo $_COOKIE["log_brick_id"] ?>>                
+              </div>
+
+              <br>
+              <div class="input-group">
+                <label for="fechaCotizacion" data-type="datepicker" class="input-group-addon">Fecha</label>
+                <input type="text" class="form-control" id="fechaCotizacion" name="fechaCotizacion">                
+              </div>
+
               <br>
               <h4 class="text-center">Total Costo</h4>
               <hr>
@@ -128,17 +163,20 @@
                 <label for="total_cotiza" class="input-group-addon">$</label>
                 <input type="number" class="form-control" id="total_cotiza" name="total_cotiza">                
               </div>
+          <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+          </div>
 
-            </div>
-
+        </div>
+        <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
       </div>
-      <div class="modal-footer">        
-        <button id="btnCalcula" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Calcular</button>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- Large modal -->
+    </div>
+  </div>
+</div>
+<!-- /form modal 2-->
 
 <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
 <div class="container">
@@ -164,7 +202,7 @@
                         <span class="flaticon-walls1 logo-cotiza"></span>
 
                         <br>                        
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_calcula_pared"><span class="glyphicon glyphicon-plus"></span> Nuevo Cálculo</button>                        
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_modal_cotizacion"><span class="glyphicon glyphicon-plus"></span> Nuevo Cálculo</button>                        
                         <hr>
                     </div>
 

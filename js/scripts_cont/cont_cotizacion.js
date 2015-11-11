@@ -300,8 +300,33 @@ $(function(){
 	    };
 	}
 
+	function calendarEs(){
+		$("#ui-datepicker-div").css('zIndex', '10000');
+		$(".ui-priority-secondary").html("Ahora");
+		$(".ui-priority-primary").html("OK");
+		$(".ui_tpicker_time_label").html("Tiempo");
+		$(".ui_tpicker_hour_label").html("Hora");
+		$(".ui_tpicker_minute_label").html("Minuto");
+		$(".ui_tpicker_second_label").html("Segundo");
+	}
+
 	//--------------------------------------------------------------------------------
-	//ejecución
+	//ejecución	
+
+	//calendario para la fecha de la cotización
+	$( "#fechaCotizacion" ).datetimepicker({
+		dateFormat: "yy-mm-dd",
+		timeFormat: "HH:mm:ss"		
+	});	
+
+	$("#fechaCotizacion").click(function(){
+		calendarEs();		
+	});
+
+	$("#ui-datepicker-div").click(function(event) {
+		calendarEs();
+	});
+	//-----------------------------------------
 
 	$("#selectCemento").change(function(event) {
 		id_cemento = $(this).val();

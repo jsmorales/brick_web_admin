@@ -7,7 +7,7 @@
 	//---------------------------------------------------------
 	$pagina = "cont_cotizacion.php";
 	$scripts = array('cont_cotizacion.js');
-	$perfiles_in = array('Administrador');
+	$perfiles_in = array('Administrador','Empleado');
 	//---------------------------------------------------------
 
 	$muestra_cotizacion->mostrar_pagina_scripts($pagina,$scripts,$perfiles_in);
