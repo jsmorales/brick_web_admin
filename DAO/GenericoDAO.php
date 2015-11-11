@@ -53,6 +53,7 @@ class GenericoDAO {
 				}
 
 				else{
+					$this->r["last_id"] = $db->insert_id;
 					$this->r["estado"] = "ok";
 					$this->r["mensaje"] = "Guardado correctamente.";
 

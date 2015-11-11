@@ -100,7 +100,7 @@
               <br>
               <h4 class="text-center">Total ladrillos</h4>
               <hr>
-
+              
               <div class="input-group">
                 <label for="" class="input-group-addon">Cantidad</label>
                 <input type="number" class="form-control" id="total_lad" name="total_lad">
@@ -137,6 +137,7 @@
               
 
             </div>
+
             <br>
             <button id="btnCalcula" type="button" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> Calcular</button>
           <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -144,25 +145,32 @@
 
           <div role="tabpanel" class="tab-pane" id="cotizacionGeneral">
           <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
-              <br>
-              <div class="input-group">                
-                <input type="text" class="form-control" id="fkID_usuario" name="fkID_usuario" value=<?php echo $_COOKIE["log_brick_id"] ?>>                
-              </div>
+              <form id="frm_cotiza_gen">
+                <br>
+                <div class="input-group">                
+                  <input type="text" class="form-control" id="fkID_usuario" name="fkID_usuario" value=<?php echo $_COOKIE["log_brick_id"] ?>>                
+                </div>
 
-              <br>
-              <div class="input-group">
-                <label for="fechaCotizacion" data-type="datepicker" class="input-group-addon">Fecha</label>
-                <input type="text" class="form-control" id="fechaCotizacion" name="fechaCotizacion">                
-              </div>
+                <br>
+                <div class="input-group">                
+                  <input type="text" class="form-control" id="fkID_cliente" name="fkID_cliente">                
+                </div>
 
-              <br>
-              <h4 class="text-center">Total Costo</h4>
-              <hr>
+                <br>
+                <div class="input-group">
+                  <label for="fecha" data-type="datepicker" class="input-group-addon">Fecha</label>
+                  <input type="text" class="form-control" id="fecha" name="fecha">                
+                </div>
 
-              <div class="input-group">
-                <label for="total_cotiza" class="input-group-addon">$</label>
-                <input type="number" class="form-control" id="total_cotiza" name="total_cotiza">                
-              </div>
+                <br>
+                <h4 class="text-center">Total Costo</h4>
+                <hr>
+
+                <div class="input-group">
+                  <label for="valor_total" class="input-group-addon">$</label>
+                  <input type="number" class="form-control" id="valor_total" name="valor_total">                
+                </div>
+              </form>
           <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
           </div>
 
@@ -170,8 +178,8 @@
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <button id="btn_action_cotizacion" type="button" class="btn btn-success" data-action="-"><span class="glyphicon glyphicon-floppy-save"></span> Guardar</button>
       </div>
     </div>
   </div>
@@ -202,7 +210,7 @@
                         <span class="flaticon-walls1 logo-cotiza"></span>
 
                         <br>                        
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_modal_cotizacion"><span class="glyphicon glyphicon-plus"></span> Nuevo Cálculo</button>                        
+                            <button id="btn_nuevoCotiza" type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_modal_cotizacion"><span class="glyphicon glyphicon-plus"></span> Nuevo Cálculo</button>                        
                         <hr>
                     </div>
 

@@ -293,7 +293,7 @@ $(function(){
 	   		$("#precio_cem_total").val(precio_cem_total);
 
 	   		total_cotiza = precio_cem_total + precio_lad_total;
-	   		$("#total_cotiza").val(total_cotiza);
+	   		$("#valor_total").val(total_cotiza);
 	    	//-----------------------------------------------------------------------
 	    }else{
 	    	alert("Por favor complete los campos para poder hacer el cálculo, asegúrese de seleccionar un ladrillo y un cemento que contenga las propiedades válidas.");
@@ -314,12 +314,12 @@ $(function(){
 	//ejecución	
 
 	//calendario para la fecha de la cotización
-	$( "#fechaCotizacion" ).datetimepicker({
+	$( "#fecha" ).datetimepicker({
 		dateFormat: "yy-mm-dd",
 		timeFormat: "HH:mm:ss"		
 	});	
 
-	$("#fechaCotizacion").click(function(){
+	$("#fecha").click(function(){
 		calendarEs();		
 	});
 

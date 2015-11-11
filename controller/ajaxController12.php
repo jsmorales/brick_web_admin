@@ -18,13 +18,14 @@
 	 		$generico = new GenericoDAO();
 	 		$crea_sql = new crea_sql();
 
-	 		$q_inserta = $crea_sql->crea_insert($_GET);	 		
+	 		$q_inserta = $crea_sql->crea_insert($_GET);
+	 		$r["query"] = $q_inserta;	 		
 
 	 		$resultado = $generico->EjecutaInsertar($q_inserta);
 	 		/**/
 	 		if($resultado){
 	 			
-	 			$r[] = $resultado;
+	 			$r[] = $resultado; 			
 
 	 		}else{
 
