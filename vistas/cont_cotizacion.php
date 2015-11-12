@@ -1,8 +1,11 @@
 <?php 
 
     include("../controller/materialesController.php");
+    include("../controller/cotizacionController.php");
 
     $materialesinst = new MaterialesController();
+
+    $cotizacioninst = new CotizacionController();
 
  ?>
 
@@ -212,6 +215,31 @@
                         <br>                        
                             <button id="btn_nuevoCotiza" type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_modal_cotizacion"><span class="glyphicon glyphicon-plus"></span> Nuevo Cálculo</button>                        
                         <hr>
+
+                        <div class="table-responsive">
+                      <!-- tabla de clientes -->
+                          <table id="tabla_clientes" class="table table-bordered table-hover table-striped">
+
+                                      <thead>
+                                          <tr>
+                                              <th>ID Cotizacion</th>
+                                              <th>Fecha-Hora</th>
+                                              <th>Total</th>
+                                              <th>Cliente</th>
+                                              <th>Usuario</th>                                                                                    
+                                              <th>Opciones</th>
+                                          </tr>
+                                      </thead>
+
+                                      <tbody>
+                                          <?php 
+                                              $cotizacioninst->getTablaCotizacion();                           
+                                           ?>
+                                      </tbody>
+                          </table>
+                          <!-- /tabla de materiales -->
+                      </div>
+                        
                     </div>
 
                     
