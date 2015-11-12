@@ -223,10 +223,11 @@
                                       <thead>
                                           <tr>
                                               <th>ID Cotizacion</th>
-                                              <th>Fecha-Hora</th>
-                                              <th>Total</th>
                                               <th>Cliente</th>
-                                              <th>Usuario</th>                                                                                    
+                                              <th>Usuario</th>
+                                              <th>Fecha-Hora</th>
+                                              <th>Materiales</th>
+                                              <th>Total</th>                                                                                                                                  
                                               <th>Opciones</th>
                                           </tr>
                                       </thead>

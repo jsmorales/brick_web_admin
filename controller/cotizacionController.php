@@ -27,22 +27,50 @@
 
                  $valor_total = $this->cotizacion[$a]["valor_total"];
 
-                 $fkID_cliente = $this->cotizacion[$a]["fkID_cliente"]; 
-
-
+                 $fkID_cliente = $this->cotizacion[$a]["fkID_cliente"];
                  $fkID_usuario = $this->cotizacion[$a]["fkID_usuario"];
+
+
+                 $materiales = $this->getRegistrosCotiza($id);
 
                  echo '
                              <tr>
                                  <td>'.$id.'</td>
-                                 <td>'.$fecha.'</td>
-                                 <td>'.$valor_total.'</td>
                                  <td>'.$cliente.'</td>                                                    
-                                 <td>'.$usuario.'</td>                                 
+                                 <td>'.$usuario.'</td>
+                                 <td>'.$fecha.'</td>
+                                 <td>';
+                               echo "<table>
+	                               		<thead>
+	                                          <tr>
+	                                              <th>nombre</th>
+	                                              <th>cantidad</th>
+	                                              <th>total</th>
+	                                              <th>clase</th>                                              
+	                                          </tr>
+	                                      </thead> 
+	                                 		";
+	                                 for($b=0;$b<sizeof($materiales);$b++){
+
+	                                 	$nom_material = $materiales[$b]["nom_material"];
+	                                 	$cantidad_material = $materiales[$b]["cantidad_material"];
+	                                 	$costo_material = $materiales[$b]["costo_material"];
+	                                 	$clase_material = $materiales[$b]["clase_material"];
+	                                 
+	                                 	echo "<tr>
+	                                 		  <td>".$nom_material."</td>
+	                                 		  <td>".$cantidad_material."</td>
+	                                 		  <td>".$costo_material."</td>
+	                                 		  <td>".$clase_material."</td>
+	                                 		  </tr>";                                
+
+	                                 };
+                               echo "</table>";
+
+                echo'            </td>
+                                 <td><strong>'.$valor_total.'</strong></td>                                                                  
 		                         <td>
-		                             <button id="btn_editar" name="edita_cliente" type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal_cotizacion" data-id-cliente = "'.$id.'" ><span class="glyphicon glyphicon-pencil"></span>&nbspEditar</button>
-		                             <br><br>
-		                             <button id="btn_eliminar" name="elimina_cliente" type="button" class="btn btn-danger" data-id-cliente = "'.$id.'" ><span class="glyphicon glyphicon-remove"></span>&nbspEliminar</button>
+		                             <a id="btn_genera" name="" type="button" class="btn btn-primary" data-toggle="modal" href="../controller/ajaxGeneraPDF.php?tipo=genera_cotizacion&pkID='.$id.'" target="_blank" ><span class="glyphicon glyphicon-pencil"></span>&nbspGenera PDF</a>		                             
 		                         </td>
 		                     </tr>';
                 };
