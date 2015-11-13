@@ -10,10 +10,14 @@
 		//-------------------------------------
 
 		//---------------------------------------------------------------------------------
-	    public function getTablaCotizacion(){
+	    public function getTablaCotizacion($tipo_usuario,$id_usuario){
 
-	    	//get de los cotizacion
-	    	$this->cotizacion = $this->getCotizacion();
+	    	if($tipo_usuario == "Administrador"){
+	    		//get de los cotizacion  
+	    		$this->cotizacion = $this->getCotizacion();
+	    	}else{
+	    		$this->cotizacion = $this->getCotizacionUser($id_usuario);
+	    	}	    	
 
 	    	//valida si hay cotizacion
 	    	if($this->cotizacion){
@@ -84,9 +88,10 @@
 		               <td></td>
 		               <td></td>
 		               <td></td>
+		               <td></td>
 		               <td></td>		               		                                           
 		           </tr>
-		           <h3>En este momento no hay cotizacion creados.</h3>";
+		           <h3>En este momento no hay cotizaciones creadas.</h3>";
             };
 
 	    }

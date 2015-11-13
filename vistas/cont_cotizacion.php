@@ -245,7 +245,7 @@
 
                                       <tbody>
                                           <?php 
-                                              $cotizacioninst->getTablaCotizacion();                           
+                                              $cotizacioninst->getTablaCotizacion($_COOKIE["log_brick_tipo"],$_COOKIE["log_brick_id"]);                           
                                            ?>
                                       </tbody>
                           </table>

@@ -80,6 +80,7 @@ class UsuariosController {
 					alert("Bienvenido '.$nombre.' '.$apellidos.'");					
 			</script>';
 
+			//validar el tipo y redireccionar
 			echo "<script language=javascript> location.href='../vistas/index_admin.php'</script>";
 				
 		} else {
