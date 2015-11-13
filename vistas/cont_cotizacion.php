@@ -150,13 +150,23 @@
           <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
               <form id="frm_cotiza_gen">
                 <br>
-                <div class="input-group">                
-                  <input type="text" class="form-control" id="fkID_usuario" name="fkID_usuario" value=<?php echo $_COOKIE["log_brick_id"] ?>>                
-                </div>
+                <div hidden="">
+                  <div class="input-group">                
+                    <input type="text" class="form-control" id="fkID_usuario" name="fkID_usuario" value=<?php echo $_COOKIE["log_brick_id"] ?>>                
+                  </div>
+                </div> 
+
+                <div hidden="">
+                  <div class="input-group">                
+                    <input type="text" class="form-control" id="fkID_cliente" name="fkID_cliente">                
+                  </div>
+                </div>               
 
                 <br>
-                <div class="input-group">                
-                  <input type="text" class="form-control" id="fkID_cliente" name="fkID_cliente">                
+                <div class="input-group">
+                  <label for="" class="">Número de CC de cliente:</label>                
+                  <input type="text" class="form-control" id="autoCliente" name="">
+                  <div id="res_autocompleta"></div>
                 </div>
 
                 <br>

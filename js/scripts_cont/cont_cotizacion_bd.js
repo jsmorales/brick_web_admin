@@ -165,4 +165,28 @@ $(function(){
 
 		console.log("accion a ejecutar: "+action);
 	});
+
+	//------------------------------------------------------------------------------
+	//funciones de autocompletado de clientes
+		
+	$( "#autoCliente" ).focus(function(event) {
+		/* Act on the event */
+		$('.ui-autocomplete').css('z-index', '1000000');
+	});
+
+    $( "#autoCliente" ).autocomplete({
+      source: "../controller/cpc_cliente.php",
+      select: function( event, ui ) {
+      	console.log(ui);
+      	$("#fkID_cliente").val(ui.item.pkID);
+
+      	if(ui.item.pkID == ""){
+      		console.log('id del cliente vacío');
+      		$("#res_autocompleta").append('<a href="clientes.php" style="cursor: default;" target="_blank">Crear cliente</a>')
+      	}else{
+      		$("#res_autocompleta").html("");
+      	}
+      }
+    });
+	//------------------------------------------------------------------------------
 });

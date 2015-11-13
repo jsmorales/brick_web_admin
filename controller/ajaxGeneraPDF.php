@@ -1,6 +1,6 @@
 <?php 
 
-	header('charset=utf-8');//header para json
+	//header('http-equiv="Content-Type" content="text/html; charset=utf-8"');//header para json
 
 	include('../DAO/GenericoDAO.php');
 
