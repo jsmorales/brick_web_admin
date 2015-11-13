@@ -38,7 +38,7 @@
 				while($filar=$resultador->fetch_assoc()){
 	        
 		        $a_cliente[] = array("value"=>$filar['num_cc'],
-									"label"=>html_entity_decode($filar['nombres']."-".$filar['apellidos']),
+									"label"=>html_entity_decode($filar['num_cc']."-".$filar['nombres']."-".$filar['apellidos']),
 									"pkID"=>$filar['pkID']
 																
 					);

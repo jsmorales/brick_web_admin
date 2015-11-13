@@ -61,7 +61,7 @@
 	    $pdf->Ln(20);
 		//------------------------------------------------------
 		$pdf->SetFont('Times','',14);
-		$pdf->Cell(150,10,'Fecha:'.$fecha);
+		$pdf->Cell(150,10,'Fecha creacion:'.$fecha);
 		$pdf->Cell(20,10,'Usuario:'.$alias_user);
 		$pdf->Ln();		
 		$pdf->Cell(40,10,'Numero de cedula: '.$num_cc);

@@ -33,7 +33,7 @@ $(function(){
 	      //console.log(objt_f_adminPublicidad.srlz);
 	      //--------------------------------------
 	      /**/
-	      if(objt_f_cotiza_general.estado == true){
+	      if( (objt_f_cotiza_general.estado == true) & ( ($("#ancho").val() != undefined) & ($("#alto").val() != undefined) & ($("#peso").val() != undefined) ) ){
 
 	        $.ajax({
 	          url: "../controller/ajaxController12.php",
@@ -182,6 +182,7 @@ $(function(){
 
       	if(ui.item.pkID == ""){
       		console.log('id del cliente vacío');
+      		$("#res_autocompleta").html("");
       		$("#res_autocompleta").append('<a href="clientes.php" style="cursor: default;" target="_blank">Crear cliente</a>')
       	}else{
       		$("#res_autocompleta").html("");

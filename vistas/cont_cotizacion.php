@@ -165,14 +165,14 @@
                 <br>
                 <div class="input-group">
                   <label for="" class="">Número de CC de cliente:</label>                
-                  <input type="text" class="form-control" id="autoCliente" name="">
+                  <input type="number" class="form-control" id="autoCliente" name="" required="true">
                   <div id="res_autocompleta"></div>
                 </div>
 
                 <br>
                 <div class="input-group">
                   <label for="fecha" data-type="datepicker" class="input-group-addon">Fecha</label>
-                  <input type="text" class="form-control" id="fecha" name="fecha">                
+                  <input type="text" class="form-control" id="fecha" name="fecha" required="true">                
                 </div>
 
                 <br>
@@ -181,18 +181,19 @@
 
                 <div class="input-group">
                   <label for="valor_total" class="input-group-addon">$</label>
-                  <input type="number" class="form-control" id="valor_total" name="valor_total">                
+                  <input type="number" class="form-control" id="valor_total" name="valor_total" required="true" readonly="">                
                 </div>
               </form>
           <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+              <br>
+              <button id="btn_action_cotizacion" type="button" class="btn btn-success" data-action="-"><span class="glyphicon glyphicon-floppy-save"></span> Guardar</button>
           </div>
-
+          
         </div>
         <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
       </div>
       <div class="modal-footer">
-        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-        <button id="btn_action_cotizacion" type="button" class="btn btn-success" data-action="-"><span class="glyphicon glyphicon-floppy-save"></span> Guardar</button>
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->        
       </div>
     </div>
   </div>
