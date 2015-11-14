@@ -28,8 +28,8 @@
                         <a href="cotizacion.php">Cotizaciones</a>
                     </li>                    
                     <li>
-                        
-                    </li>                    
+                        <a href="catalogo.php">Catálogo</a>
+                    </li>                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -20,7 +20,7 @@
                     <br>
                     <div>
                     <?php 
-                        $materiales = $catalogo->getMateriales();
+                        $materiales = $catalogo->getMateriales1();
                         //print_r($materiales);
 
                         //valida si hay materiales
@@ -40,11 +40,13 @@
                              }
 
                             echo '
-                                <div class="col-sm-4">
-                                  <img src="subidas/'.$imagen.'" alt="" class="img-thumbnail" width="140px">
-                                  <p>'.$marca.'</p>
-                                  <p>'.$nombre.'</p>
-                                  <p>'.$precio.'</p>
+                                <div class="col-lg-4">
+                                  <img src="subidas/'.$imagen.'" alt="" class="img-mini-catalogo" width="200px" height="200px">
+                                  <ul class="list-group">                                      
+                                      <li class="list-group-item"><strong>Nombre: </strong>'.$nombre.'</li>
+                                      <li class="list-group-item"><strong>Precio: </strong>$'.$precio.'</li>
+                                      <li class="list-group-item"><strong>Marca: </strong>'.$marca.'</li>
+                                  </ul>
                               </div>
                             ';
                             };
