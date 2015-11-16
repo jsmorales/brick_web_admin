@@ -58,7 +58,8 @@
                                 <button id="btn_login" class="btn btn-lg btn-success btn-block">Ingresar</button>                               
                             </fieldset>
                         </form>
-                        <!--<h5 class="text-center"><a href="#"><i class="glyphicon glyphicon-ok-circle"></i> Registrarse</a></h5>-->
+                        <!---->
+                        <h5 class="text-center"><a href="registro.php"><i class="glyphicon glyphicon-ok-circle"></i> Registrarse</a></h5>
                     </div>                   
                 </div>
             </div>            

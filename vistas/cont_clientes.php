@@ -30,16 +30,16 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="nombres" class="col-sm-2 control-label">Nombres</label>
+                        <label for="nom_cliente" class="col-sm-2 control-label">Nombres</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres del Cliente" required = "true">
+                            <input type="text" class="form-control" id="nom_cliente" name="nom_cliente" placeholder="Nombres del Cliente" required = "true">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="apellidos" class="col-sm-2 control-label">Apellidos</label>
+                        <label for="ape_cliente" class="col-sm-2 control-label">Apellidos</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos del Cliente" required = "true">
+                            <input type="text" class="form-control" id="ape_cliente" name="ape_cliente" placeholder="Apellidos del Cliente" required = "true">
                         </div>
                     </div>
 

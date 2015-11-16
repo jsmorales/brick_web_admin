@@ -24,16 +24,26 @@ $(function(){
 	//---------------------------------------------------------
 	//funciones
 
+	function validarEmail( email ) {
+	    expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	    if ( !expr.test(email) ){
+	    	alert("Error: La dirección de correo " + email + " es incorrecta.");
+	    }else{
+	    	return true;
+	    }	    
+	}
+
 	function crea_cliente(){
 
 	      //--------------------------------------
 	      //crea el objeto formulario serializado
 	      objt_f_cliente = $("#form_cliente").valida();
+	      email = $("#email").val();
 	      console.log(objt_f_cliente);
 	      //console.log(objt_f_adminPublicidad.srlz);
 	      //--------------------------------------
 	      /**/
-	      if(objt_f_cliente.estado == true){
+	      if( (objt_f_cliente.estado == true) && (validarEmail(email)) ){
 
 	        $.ajax({
 	          url: "../controller/ajaxController12.php",
@@ -91,9 +101,10 @@ $(function(){
 	    //--------------------------------------
 	    //crea el objeto formulario serializado
 	    objt_f_cliente = $("#form_cliente").valida();
+	    email = $("#email").val();
 	    //--------------------------------------
 
-	    if(objt_f_cliente.estado == true){
+	    if( (objt_f_cliente.estado == true) && (validarEmail(email)) ){
 
 	        console.log(objt_f_cliente.srlz);
 
@@ -115,7 +126,7 @@ $(function(){
 	        });
 
 	    }else{
-	        alert("Faltan "+Object.keys(objt_f_evento.objt).length+" campos por llenar.");
+	        alert("Faltan "+Object.keys(objt_f_cliente.objt).length+" campos por llenar.");
 	    }
 	    //------------------------------------------------------
 
@@ -160,6 +171,10 @@ $(function(){
 	//ejecución
 	//-------------------------------------------------------------------------------
 
+	$("#email").change(function(event) {
+		/* Act on the event */
+		validarEmail($(this).val());
+	});
 	  //--------------------------------------------
 	  	
 		/*

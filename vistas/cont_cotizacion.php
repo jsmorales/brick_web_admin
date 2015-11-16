@@ -39,13 +39,13 @@
             <br>              
                 <div class="input-group">
                   <label for="altoP" class="input-group-addon">Alto</label>
-                  <input type="number" class="form-control" id="altoP" name="altoP" placeholder="Alto de la pared en metros" required = "true">
+                  <input type="number" class="form-control" id="altoP" name="altoP" placeholder="Alto de la pared en metros" min="1" max="9999" required = "true">
                   <div class="input-group-addon">Metros</div>
                 </div>
                 <br>
                 <div class="input-group">
                   <label for="anchoP" class="input-group-addon">Ancho</label>
-                  <input type="number" class="form-control" id="anchoP" name="anchoP" placeholder="Ancho de la pared en metros" required = "true">
+                  <input type="number" class="form-control" id="anchoP" name="anchoP" placeholder="Ancho de la pared en metros" min="1" max="9999" required = "true">
                   <div class="input-group-addon">Metros</div>
                 </div>
             <br>
@@ -106,13 +106,13 @@
               
               <div class="input-group">
                 <label for="" class="input-group-addon">Cantidad</label>
-                <input type="number" class="form-control" id="total_lad" name="total_lad">
+                <input type="number" class="form-control" id="total_lad" name="total_lad" readonly="">
                 <div class="input-group-addon">Unidad(es)</div>
               </div>
               <br>
               <div class="input-group">
                 <label for="precio_lad_total" class="input-group-addon">$</label>
-                <input type="number" class="form-control" id="precio_lad_total" name="precio_lad_total">
+                <input type="number" class="form-control" id="precio_lad_total" name="precio_lad_total" readonly="">
                 <div class="input-group-addon">Costo</div>
               </div>
 
@@ -121,19 +121,19 @@
               <hr>
               <div class="input-group">
                 <label for="parcial_cem" class="input-group-addon">Estimado Parcial</label>
-                <input type="number" class="form-control" id="parcial_cem" name="parcial_cem">
+                <input type="number" class="form-control" id="parcial_cem" name="parcial_cem" readonly="">
                 <div class="input-group-addon">Kg</div>
               </div>
               <br>
               <div class="input-group">
                 <label for="total_cem" class="input-group-addon">Cantidad</label>
-                <input type="number" class="form-control" id="total_cem" name="total_cem">
+                <input type="number" class="form-control" id="total_cem" name="total_cem" readonly="">
                 <div class="input-group-addon">Unidad(es)</div>
               </div>
               <br>
               <div class="input-group">
                 <label for="precio_cem_total" class="input-group-addon">$</label>
-                <input type="number" class="form-control" id="precio_cem_total" name="precio_cem_total">
+                <input type="number" class="form-control" id="precio_cem_total" name="precio_cem_total" readonly="">
                 <div class="input-group-addon">Costo</div>
               </div>
 

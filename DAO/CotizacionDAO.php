@@ -21,7 +21,7 @@
 		//funciones
 		public function getCotizacion(){
 
-			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nombres AS nom_cliente, cliente.apellidos AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
+			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nom_cliente AS nom_cliente, cliente.ape_cliente AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
 								FROM  `cotizacion` 
 								INNER JOIN cliente ON cliente.pkID = cotizacion.fkID_cliente
 								INNER JOIN usuarios ON usuarios.pkID = cotizacion.fkID_usuario";			
@@ -31,7 +31,7 @@
 
 		public function getCotizacionUser($id_usuario){
 
-			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nombres AS nom_cliente, cliente.apellidos AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
+			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nom_cliente AS nom_cliente, cliente.ape_cliente AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
 								FROM  `cotizacion` 
 								INNER JOIN cliente ON cliente.pkID = cotizacion.fkID_cliente
 								INNER JOIN usuarios ON usuarios.pkID = cotizacion.fkID_usuario
@@ -42,7 +42,7 @@
 
 		public function getCotizacionId($pkID_cotizacion){
 
-			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nombres AS nom_cliente, cliente.apellidos AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
+			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nom_cliente AS nom_cliente, cliente.ape_cliente AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
 								FROM  `cotizacion` 
 								INNER JOIN cliente ON cliente.pkID = cotizacion.fkID_cliente
 								INNER JOIN usuarios ON usuarios.pkID = cotizacion.fkID_usuario

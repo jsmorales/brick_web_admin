@@ -22,8 +22,8 @@
 
                  $id = $this->clientes[$a]["pkID"];
                  $cc = $this->clientes[$a]["num_cc"];
-                 $nombre = $this->clientes[$a]["nombres"];
-                 $apellidos = $this->clientes[$a]["apellidos"];
+                 $nombre = $this->clientes[$a]["nom_cliente"];
+                 $apellidos = $this->clientes[$a]["ape_cliente"];
                  $telefono = $this->clientes[$a]["telefono"];
                  $direccion = $this->clientes[$a]["direccion"];
                  $email = $this->clientes[$a]["email"];                             

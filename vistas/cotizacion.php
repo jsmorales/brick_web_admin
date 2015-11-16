@@ -6,7 +6,7 @@
 
 	//---------------------------------------------------------
 	$pagina = "cont_cotizacion.php";
-	$scripts = array('cont_cotizacion.js', 'cont_cotizacion_bd.js');
+	$scripts = array('cont_cotizacion.js', 'cont_cotizacion_bd.js', 'cont_cotizacion_val.js');
 	$perfiles_in = array('Administrador','Empleado','Cliente');
 	//---------------------------------------------------------
 
