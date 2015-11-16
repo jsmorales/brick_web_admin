@@ -227,8 +227,22 @@
                             <button id="btn_nuevoCotiza" type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_modal_cotizacion"><span class="glyphicon glyphicon-plus"></span> Nuevo Cálculo</button>                        
                         <hr>
 
+                        <div hidden="">
+                          <input id="tipo_user" type="text" value=<?php echo $_COOKIE["log_brick_tipo"] ?> >
+                          <input id="id_cliente" type="text" value=<?php 
+                                                                      //echo $_COOKIE["log_brick_idCli"]
+                                                                      if( isset($_COOKIE["log_brick_idCli"]) ){
+                                                                        //echo "S esta";
+                                                                        echo $_COOKIE["log_brick_idCli"];
+                                                                      } else{
+                                                                        
+                                                                      }
+                                                                    ?> >
+                          <input id="cedula_user" type="text" value=<?php echo $_COOKIE["log_brick_num_cc"] ?> >
+                        </div>
+
                         <div class="table-responsive">
-                      <!-- tabla de clientes -->
+                        <!-- tabla de clientes -->
                           <table id="tabla_clientes" class="table table-bordered table-hover table-striped">
 
                                       <thead>
@@ -244,7 +258,8 @@
                                       </thead>
 
                                       <tbody>
-                                          <?php 
+                                          <?php
+                                              //print_r($_COOKIE); 
                                               $cotizacioninst->getTablaCotizacion($_COOKIE["log_brick_tipo"],$_COOKIE["log_brick_id"]);                           
                                            ?>
                                       </tbody>

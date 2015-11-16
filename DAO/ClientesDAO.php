@@ -25,6 +25,13 @@
 			
 			return GenericoDAO::EjecutarConsulta($this->q_general);
 		}
+
+		public function getClientesCc($num_cc){
+
+			$this->q_general = "select * from cliente where num_cc =".$num_cc;			
+			
+			return GenericoDAO::EjecutarConsulta($this->q_general);
+		}
 		/*-----------------------------------------*/
 
 	};

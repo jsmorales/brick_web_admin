@@ -326,6 +326,10 @@ $(function(){
 	$("#ui-datepicker-div").click(function(event) {
 		calendarEs();
 	});
+
+	$("#ui-state-default").click(function(event) {
+		calendarEs();
+	});
 	//-----------------------------------------
 
 	$("#selectCemento").change(function(event) {
