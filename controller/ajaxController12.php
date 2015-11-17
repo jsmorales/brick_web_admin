@@ -65,6 +65,36 @@
 	 	break;
 		//----------------------------------------------------------------------------------------------------
 
+	 	//----------------------------------------------------------------------------------------------------
+	 	case 'actualiza_usuario':
+
+	 		$generico = new GenericoDAO();
+	 		$crea_sql = new crea_sql();
+
+
+	 		$_GET["pass"] = sha1($_GET["pass"]);
+
+	 		$q_actualiza = $crea_sql->crea_update($_GET);
+
+	 		$r["query"] = $q_actualiza;	 		
+
+	 		/**/
+	 		$resultado = $generico->EjecutaActualizar($q_actualiza);
+	 		
+	 		if($resultado){
+	 			
+	 			$r["estado"] = "ok";
+	 			$r["mensaje"] = "Contraseña Actualizada!"; 			
+
+	 		}else{
+
+	 			$r["estado"] = "Error";
+	 			$r["mensaje"] = "No se actualizo.";
+	 		}
+
+	 	break;
+		//----------------------------------------------------------------------------------------------------
+
 
 		//----------------------------------------------------------------------------------------------------
 	 	case 'consultar':

@@ -2,7 +2,7 @@
 
 	include_once 'GenericoDAO.php';
 
-	class registro extends GenericoDAO{
+	class propiedades extends GenericoDAO{
 
 		/*-----------------------------------------*/
 		//variables
@@ -19,15 +19,12 @@
 
 		/*-----------------------------------------*/
 		//funciones
-		public function getTipoUsuario(){
+		public function getPropiedades(){
 
-			$this->q_general = "select * from tipo_usuario";			
+			$this->q_general = "select * from propiedad";			
 			
 			return GenericoDAO::EjecutarConsulta($this->q_general);
 		}
-		/*-----------------------------------------*/
-
-	};
-
+	}
 
  ?>

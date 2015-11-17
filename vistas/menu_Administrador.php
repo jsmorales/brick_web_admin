@@ -29,6 +29,36 @@
                     </li>                    
                     <li>
                         <a href="catalogo.php">Catálogo</a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                          <button id="dLabel" class="btn-class-admin" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Administrador
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li class="dropdown-header">Sesiones</li>
+                            <li>
+                                <a href="usuarios.php">Usuarios</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Materiales</li>
+                            <li>
+                                <a href="propiedades.php">Propiedades</a>
+                            </li>
+                            <li>
+                                <a href="#">Unidad de Medida</a>
+                            </li>
+                            <li>
+                                <a href="#">Clases</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Gestión</li>
+                            <li>
+                                <a href="#">Reportes</a>
+                            </li>
+                          </ul>
+                        </div>
                     </li>                   
                 </ul>
             </div>

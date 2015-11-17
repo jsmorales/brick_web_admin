@@ -12,7 +12,7 @@ class UsuariosController {
 
     //ATRIBUTOS DE LA CLASE
 
-    private $UsuariosDAO;
+    public $UsuariosDAO;
     
     //CONSTRUCTOR DE LA CLASE
 
@@ -39,6 +39,62 @@ class UsuariosController {
      */
     public function getUsuarios() {
         return $this->UsuariosDAO->getUsuarios();
+    }
+
+    public function getTipoUsuarios() {
+        
+        $tipo = $this->UsuariosDAO->getTipoUsuarios();
+        
+        for($a=0;$a<sizeof($tipo);$a++){
+        	echo "<option value='".$tipo[$a]["pkID"]."'>".$tipo[$a]["nombre"]."</option>";
+        }
+    }
+
+    //---------------------------------------------------------------------------------
+    public function getTablaUsuarios(){
+
+    	//get de los usuarioes
+    	$usuarios = $this->UsuariosDAO->getUsuarios();
+
+    	//valida si hay usuarioes
+    	if($usuarios){
+
+    		for($a=0;$a<sizeof($usuarios);$a++){
+
+             $id = $usuarios[$a]["pkID"];
+             $alias = $usuarios[$a]["alias"];                           
+             $nombres = $usuarios[$a]["nombres"];
+             $apellidos = $usuarios[$a]["apellidos"];
+             $numero_cc = $usuarios[$a]["numero_cc"];
+             $nom_tipo = $usuarios[$a]["nom_tipo"];
+                                             
+
+             echo '
+                         <tr>
+                             <td>'.$id.'</td>
+                             <td>'.$alias.'</td>                                 
+                             <td>'.$nombres.'</td>
+                             <td>'.$apellidos.'</td>
+                             <td>'.$numero_cc.'</td>
+                             <td>'.$nom_tipo.'</td>
+	                         <td>
+	                             <button id="btn_editar" name="edita_usuario" type="button" class="btn btn-primary" data-toggle="modal" data-target="#frm_modal_usuario" data-id-usuario = "'.$id.'" ><span class="glyphicon glyphicon-pencil"></span>&nbspEditar</button>
+		                         <br><br>    
+	                             <button id="btn_eliminar" name="elimina_usuario" type="button" class="btn btn-danger" data-id-usuario = "'.$id.'" ><span class="glyphicon glyphicon-remove"></span>&nbspEliminar</button>
+	                         </td>
+	                     </tr>';
+            };
+
+
+    	}else{
+
+         echo "<tr>
+	               <td></td>
+	               <td></td>
+	               <td></td>		               		                                            
+	           </tr>
+	           <h3>En este momento no hay usuarioes creadas.</h3>";
+        };
     }
 	
 	public static function AutenticarUsuario(){
