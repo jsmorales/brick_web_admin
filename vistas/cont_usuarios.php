@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="pass" class="col-sm-2 control-label">Contraseña</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="pass" name="pass" placeholder="Contraseña de usuario en el sistema" required = "true">
+                            <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña de usuario en el sistema" required = "true">
                         </div>
                     </div>
 
