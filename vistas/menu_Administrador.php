@@ -55,7 +55,7 @@
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Gestión</li>
                             <li>
-                                <a href="#">Reportes</a>
+                                <a href="reportes.php">Reportes</a>
                             </li>
                           </ul>
                         </div>

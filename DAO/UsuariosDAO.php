@@ -26,6 +26,20 @@ class UsuariosDAO extends GenericoDAO{
       return GenericoDAO::EjecutarConsulta($query);
     }
 
+    public function getUsuariosReporte(){        
+       //$sql = <<<SQL SELECT * FROM usuarios SQL;
+       //return GenericoDAO::EjecutarConsulta($sql);
+      $query = "select usuarios.pkID, usuarios.alias, usuarios.nombres, usuarios.apellidos, usuarios.numero_cc, tipo_usuario.nombre as nom_tipo
+
+                FROM `usuarios` 
+
+                INNER JOIN tipo_usuario ON tipo_usuario.pkID=usuarios.fkID_tipo 
+
+                ORDER BY `usuarios`.`pkID` ASC";
+
+      return GenericoDAO::EjecutarConsulta($query);
+    }
+
     public function getTipoUsuarios(){        
        //$sql = <<<SQL SELECT * FROM usuarios SQL;
        //return GenericoDAO::EjecutarConsulta($sql);

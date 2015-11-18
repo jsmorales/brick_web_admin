@@ -118,18 +118,18 @@ class UsuariosController {
 		$nombre=$matriz[0]['nombres'];
 		$apellidos=$matriz[0]['apellidos'];
 		$num_cc=$matriz[0]['numero_cc'];
-		$tipo=$matriz[0]['t_usuario'];
-
-		$clientes = new clientes();
-
-		$res = $clientes->getClientesCc($num_cc);
-
-		$idCli=$res[0]['pkID'];
+		$tipo=$matriz[0]['t_usuario'];		
 
 		//echo "El estado del usuario es: ".$estado;
 
 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		if (($id!="") and ($nombre!="")){
+
+			$clientes = new clientes();
+
+			$res = $clientes->getClientesCc($num_cc);
+
+			$idCli=$res[0]['pkID'];
 
 			setcookie("log_brick_id", $id, time() + 3600, "/");
 			setcookie("log_brick_idCli", $idCli, time() + 3600, "/");
