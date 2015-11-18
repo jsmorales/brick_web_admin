@@ -2,12 +2,12 @@
 
 	include_once 'GenericoDAO.php';
 
-	class propiedades extends GenericoDAO{
+	class u_medida extends GenericoDAO{
 
 		/*-----------------------------------------*/
 		//variables
 		public $q_general;
-		public $q_propiedades;
+		public $q_u_medida;
 
 		public $q_inserta;		
 		/*-----------------------------*/
@@ -19,9 +19,9 @@
 
 		/*-----------------------------------------*/
 		//funciones
-		public function getPropiedades(){
+		public function getUmedida(){
 
-			$this->q_general = "select * from propiedad";			
+			$this->q_general = "select * from u_medida";			
 			
 			return GenericoDAO::EjecutarConsulta($this->q_general);
 		}

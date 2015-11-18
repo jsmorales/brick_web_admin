@@ -2,14 +2,14 @@
 
 	include("muestra_pagina.php");
 
-	$muestra_usuarios = new mostrar();
+	$muestra_u_medida = new mostrar();
 
 	//---------------------------------------------------------
-	$pagina = "cont_usuarios.php";
-	$scripts = array('cont_usuarios.js');
+	$pagina = "cont_u_medida.php";
+	$scripts = array('cont_u_medida.js');
 	$perfiles_in = array('Administrador');
 	//---------------------------------------------------------
 
-	$muestra_usuarios->mostrar_pagina_scripts($pagina,$scripts,$perfiles_in);
+	$muestra_u_medida->mostrar_pagina_scripts($pagina,$scripts,$perfiles_in);
 
  ?>

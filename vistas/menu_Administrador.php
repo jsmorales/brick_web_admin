@@ -47,7 +47,7 @@
                                 <a href="propiedades.php">Propiedades</a>
                             </li>
                             <li>
-                                <a href="#">Unidad de Medida</a>
+                                <a href="u_medida.php">Unidad de Medida</a>
                             </li>
                             <li>
                                 <a href="#">Clases</a>
