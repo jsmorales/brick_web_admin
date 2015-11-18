@@ -1,40 +1,40 @@
 $(function(){
-	console.log('hola desde u medida de material.');
+	console.log('hola desde clase de material.');
 
 	//---------------------------------------------------------
 	//variable para el objeto del formulario
-	var objt_f_u_medida = {};
+	var objt_f_clase = {};
 	//variable de accion del boton del formulario
 	var action = "";
 	  //variable para el id del registro
-	var id_u_medida = "";
+	var id_clase = "";
 	//---------------------------------------------------------
 
 	function valida_action(action){
 
   		if(action==="crear"){
-    		crea_u_medida();
+    		crea_clase();
     		//subida_foto();
   		}else if(action==="editar"){
-    		edita_u_medida();
+    		edita_clase();
   		};
 	};
 
-	function crea_u_medida(){
+	function crea_clase(){
 
 	      //--------------------------------------
 	      //crea el objeto formulario serializado
-	      objt_f_u_medida = $("#form_u_medida").valida();
+	      objt_f_clase = $("#form_clase").valida();
 	      //email = $("#email").val(); && (validarEmail(email))
-	      console.log(objt_f_u_medida);
+	      console.log(objt_f_clase);
 	      //console.log(objt_f_adminPublicidad.srlz);
 	      //--------------------------------------
 	      /**/
-	      if( objt_f_u_medida.estado == true ){
+	      if( objt_f_clase.estado == true ){
 
 	        $.ajax({
 	          url: "../controller/ajaxController12.php",
-	          data: objt_f_u_medida.srlz+"&tipo=inserta&nom_tabla=u_medida",
+	          data: objt_f_clase.srlz+"&tipo=inserta&nom_tabla=clase",
 	        })
 	        .done(function(data) {	          
 	          //---------------------
@@ -57,13 +57,13 @@ $(function(){
 	    };
 	  //cierra crea
 
-	  function carga_u_medida(id_u_medida){
+	  function carga_clase(id_clase){
 
-	    console.log("Carga el u_medida "+id_u_medida);
+	    console.log("Carga el clase "+id_clase);
 
 	    $.ajax({
 	        url: '../controller/ajaxController12.php',
-	        data: "pkID="+id_u_medida+"&tipo=consultar&nom_tabla=u_medida",
+	        data: "pkID="+id_clase+"&tipo=consultar&nom_tabla=clase",
 	    })
 	    .done(function(data) {
 	    	/**/
@@ -81,23 +81,23 @@ $(function(){
 	    });
 
 	  };
-	  //cierra carga_u_medida
+	  //cierra carga_clase
 
-	 function edita_u_medida(){
+	 function edita_clase(){
 
 	    //--------------------------------------
 	    //crea el objeto formulario serializado
-	    objt_f_u_medida = $("#form_u_medida").valida();
+	    objt_f_clase = $("#form_clase").valida();
 	    //email = $("#email").val(); ) && (validarEmail(email)) 
 	    //--------------------------------------
 
-	    if( objt_f_u_medida.estado == true ){
+	    if( objt_f_clase.estado == true ){
 
-	        console.log(objt_f_u_medida.srlz);
+	        console.log(objt_f_clase.srlz);
 
 	        $.ajax({
 	            url: '../controller/ajaxController12.php',
-	            data: objt_f_u_medida.srlz+"&tipo=actualizar&nom_tabla=u_medida",
+	            data: objt_f_clase.srlz+"&tipo=actualizar&nom_tabla=clase",
 	        })
 	        .done(function(data) {	           
 	            //---------------------
@@ -113,18 +113,18 @@ $(function(){
 	        });
 
 	    }else{
-	        alert("Faltan "+Object.keys(objt_f_u_medida.objt).length+" campos por llenar.");
+	        alert("Faltan "+Object.keys(objt_f_clase.objt).length+" campos por llenar.");
 	    }
 	    //------------------------------------------------------
 
     };
-    //cierra funcion edita_u_medida
+    //cierra funcion edita_clase
 
-    function elimina_u_medida(id_u_medida){
+    function elimina_clase(id_clase){
 
-	    console.log('Eliminar el u_medida: '+id_u_medida);
+	    console.log('Eliminar el clase: '+id_clase);
 
-	    var confirma = confirm("En realidad quiere eliminar este u_medida?");
+	    var confirma = confirm("En realidad quiere eliminar este clase?");
 
 	    console.log(confirma);
 	    /**/
@@ -132,7 +132,7 @@ $(function(){
 	      //si confirma es true ejecuta ajax
 	      $.ajax({
 	            url: '../controller/ajaxController12.php',
-	            data: "pkID="+id_u_medida+"&tipo=eliminar&nom_tabla=u_medida",
+	            data: "pkID="+id_clase+"&tipo=eliminar&nom_tabla=clase",
 	        })
 	        .done(function(data) {            
 	            //---------------------
@@ -152,7 +152,7 @@ $(function(){
 	      //no hace nada
 	    }
     };
-    //cierra funcion eliminar u_medida
+    //cierra funcion eliminar clase
 
 	//---------------------------------------------------------
 	//ejecución
@@ -160,36 +160,36 @@ $(function(){
 	/*
 	Botón que carga el formulario para insertar
 	*/
-	$("#btn_nuevou_medida").click(function(){
+	$("#btn_nuevoclase").click(function(){
 
-	  	$("#lbl_form_u_medida").html("Nuevo Registro u_medida");
-	  	$("#lbl_btn_actionu_medida").html("Guardar<span class='glyphicon glyphicon-chevron-right'></span>");
-	  	$("#btn_actionu_medida").attr("data-action","crear");
+	  	$("#lbl_form_clase").html("Nuevo Registro clase");
+	  	$("#lbl_btn_actionclase").html("Guardar<span class='glyphicon glyphicon-chevron-right'></span>");
+	  	$("#btn_actionclase").attr("data-action","crear");
 
-	  	$("#form_u_medida")[0].reset();	      	   
+	  	$("#form_clase")[0].reset();	      	   
 	});
 
 	/*
     Botón que carga el formulario para editar
     */  
-    $("[name*='edita_u_medida']").click(function(event) {
+    $("[name*='edita_clase']").click(function(event) {
 
-        $("#lbl_form_u_medida").html("Editar Registro u_medida");
-        $("#lbl_btn_actionu_medida").html("Guardar Cambios<span class='glyphicon glyphicon-chevron-right'></span>");
-        $("#btn_actionu_medida").attr("data-action","editar");
+        $("#lbl_form_clase").html("Editar Registro clase");
+        $("#lbl_btn_actionclase").html("Guardar Cambios<span class='glyphicon glyphicon-chevron-right'></span>");
+        $("#btn_actionclase").attr("data-action","editar");
 
-        $("#form_u_medida")[0].reset();
+        $("#form_clase")[0].reset();
 	      
-        id_u_medida = $(this).attr('data-id-Umedida');
+        id_clase = $(this).attr('data-id-clase');
 	      
-        carga_u_medida(id_u_medida);
-        //carga_u_medidaes(id_u_medida);
+        carga_clase(id_clase);
+        //carga_clase(id_clase);
     });
 
     /*
 	Botón de accion de formulario
 	*/
-	$("#btn_actionu_medida").click(function(){
+	$("#btn_actionclase").click(function(){
 
       /**/
 	  	action = $(this).attr("data-action");
@@ -200,11 +200,11 @@ $(function(){
 
 	});
 
-	$("[name*='elimina_u_medida']").click(function(event) {
+	$("[name*='elimina_clase']").click(function(event) {
 	    /* Act on the event */
-	    id_u_medida = $(this).attr('data-id-Umedida');
+	    id_clase = $(this).attr('data-id-clase');
 
-	    elimina_u_medida(id_u_medida);
+	    elimina_clase(id_clase);
 
 	  });	  
 

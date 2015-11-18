@@ -50,7 +50,7 @@
                                 <a href="u_medida.php">Unidad de Medida</a>
                             </li>
                             <li>
-                                <a href="#">Clases</a>
+                                <a href="clase.php">Clases</a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li class="dropdown-header">Gestión</li>
