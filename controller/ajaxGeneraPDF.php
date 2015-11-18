@@ -35,6 +35,12 @@
  			$repAdmin->createReporteUsuarios();
 
  		break;
+
+ 		case 'genera_reporte_clientes':
+
+ 			$repAdmin->createReporteClientes();
+
+ 		break;
  	};
  	//--------------------------------------------------------------------------------------------------------
 

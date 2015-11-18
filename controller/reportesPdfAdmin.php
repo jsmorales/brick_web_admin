@@ -15,6 +15,7 @@
 	*/ 
 	
 	include '../DAO/UsuariosDAO.php';
+	include '../DAO/ClientesDAO.php';
 	
 	class repAdminPdf {
 
@@ -36,11 +37,23 @@
 		public $total_empleados = 0;
 		public $total_clientes = 0;
 		//----------------------------
+		//variables clientes
+		//instancia dao clientes
+		public $clientesInst;
+		//datos de la instancia
+		public $dataClientes;
+		//tabla clientes
+		public $header_clientes;
+		public $bobyTabla_clientes;
+		public $total_cli;
+		
+		//----------------------------
 		
 		public function __construct(){
 
 			$this->pdf =  new FPDF();
 			$this->usuariosInst = new UsuariosDAO();
+			$this->clientesInst = new clientes();
 			$this->time = time();
 		}
 
@@ -143,6 +156,60 @@
  		}
 
  		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+ 		function loadClientes(){
+
+			$this->dataClientes = $this->clientesInst->getClientes();
+
+			$this->header_clientes = array("Id","Num.cc","Nombres","Apellidos","tel.","direccion","email");
+			$this->bobyTabla_clientes = array_values($this->dataClientes);
+			$this->total_cli = count($this->dataClientes);
+	
+		}
+
+		function tablaClientes(){
+
+ 			$this->pdf->Cell(40,10,'Reporte de Clientes:');
+			$this->pdf->Ln();
+			$this->pdf->Ln();	
+			
+			$this->pdf->SetFont('Times','B',12);
+			// Cabecera
+			    foreach($this->header_clientes as $col)
+			        $this->pdf->Cell(28,7,$col,1);
+			    	$this->pdf->Ln();
+			    // Datos
+			$this->pdf->SetFont('Times','',8);
+			    foreach($this->bobyTabla_clientes as $row)
+			    {
+			        foreach($row as $col)		        	
+
+			            $this->pdf->Cell(28,6,$col,1);
+			        	$this->pdf->Ln();
+			    }
+
+			$this->pdf->SetFont('Times','B',12);
+			$this->pdf->Ln();
+			$this->pdf->Cell(40,10,'Total de Clientes: '.$this->total_cli);
+			
+ 		}
+
+
+ 		function createReporteClientes(){
+
+ 			$this->pdf->AddPage();
+ 			$this->logoReporte();
+
+ 			$this->loadClientes();
+
+ 			$this->tablaClientes();
+
+ 			$this->pdf->Output();
+ 		}
+
+
 
 	}
  ?>
