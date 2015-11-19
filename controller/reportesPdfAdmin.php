@@ -16,6 +16,7 @@
 	
 	include '../DAO/UsuariosDAO.php';
 	include '../DAO/ClientesDAO.php';
+	include '../DAO/MaterialesDAO.php';
 	
 	class repAdminPdf {
 
@@ -46,6 +47,20 @@
 		public $header_clientes;
 		public $bobyTabla_clientes;
 		public $total_cli;
+		//----------------------------
+		//variables materiales
+		//instancia dao materiales
+		public $materialesInst;
+		//datos de la instancia
+		public $dataMateriales;
+		public $dataMaterialesReg;
+		//tabla materiales
+		public $header_materiales;
+		public $bobyTabla_materiales;
+		public $id_material;
+		public $header_materialesReg;
+		public $bobyTabla_materialesReg;
+		public $total_materiales;
 		
 		//----------------------------
 		
@@ -54,6 +69,7 @@
 			$this->pdf =  new FPDF();
 			$this->usuariosInst = new UsuariosDAO();
 			$this->clientesInst = new clientes();
+			$this->materialesInst = new materiales();
 			$this->time = time();
 		}
 
@@ -157,8 +173,6 @@
 
  		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-
  		function loadClientes(){
 
 			$this->dataClientes = $this->clientesInst->getClientes();
@@ -208,7 +222,100 @@
 
  			$this->pdf->Output();
  		}
+ 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 		
+ 		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+ 		function loadMateriales(){
+
+			$this->dataMateriales = $this->materialesInst->getMaterialesReporte();			
+
+			$this->header_materiales = array("Id","Nombre","Precio","Marca","Clase");
+			$this->bobyTabla_materiales = array_values($this->dataMateriales);
+			$this->total_materiales = count($this->dataMateriales);
+	
+		}
+
+
+		function tablaMateriales(){
+
+ 			$this->pdf->Cell(40,10,'Reporte de Materiales:');
+			$this->pdf->Ln();
+						
+			$this->pdf->SetFont('Times','B',12);
+			// Cabecera
+			    foreach($this->header_materiales as $col)
+			        $this->pdf->Cell(28,7,$col,1);
+			    	$this->pdf->Ln();
+
+			    // Datos
+			$this->pdf->SetFont('Times','',8);
+			    foreach($this->bobyTabla_materiales as $row)
+			    {	
+			    	
+			    	$this->id_material = $row["pkID"];
+			    	//$this->pdf->Cell(28,6,$this->id_material,1);
+
+
+			        foreach($row as $col)	
+
+			            $this->pdf->Cell(28,6,$col,1);			        	
+			        	$this->pdf->Ln();
+			        
+			        $this->loadMaterialesReg();
+
+			    	$this->loadTblMteReg();	
+			    }
+
+			$this->pdf->SetFont('Times','B',12);
+			//$this->pdf->Ln();
+			$this->pdf->Cell(40,10,'Total de Materiales: '.$this->total_materiales);
+			
+ 		}
+
+ 		function loadMaterialesReg(){
+
+ 			$this->header_materialesReg = array("Propiedades");
+
+			$this->dataMaterialesReg = $this->materialesInst->getMaterialPropiedadesR($this->id_material);
+
+			$this->bobyTabla_materialesReg = array_values($this->dataMaterialesReg);
+				
+		}
+
+
+		function loadTblMteReg(){
+
+				$this->pdf->SetFont('Times','B',10);
+			// Cabecera
+			    foreach($this->header_materialesReg as $col)
+			        $this->pdf->Cell(28,7,$col,1);
+			    	$this->pdf->Ln();
+
+			$this->pdf->SetFont('Times','',8);
+
+			foreach($this->bobyTabla_materialesReg as $row)
+			    {
+			        foreach($row as $col)		        	
+
+			            $this->pdf->Cell(28,6,$col,1);
+			        	$this->pdf->Ln();
+			    }
+
+			$this->pdf->Ln();
+		}
+
+ 		function createReporteMateriales(){
+
+ 			$this->pdf->AddPage();
+ 			$this->logoReporte();
+
+ 			$this->loadMateriales();
+
+ 			$this->tablaMateriales();
+
+ 			$this->pdf->Output();
+ 		}
 
 
 	}

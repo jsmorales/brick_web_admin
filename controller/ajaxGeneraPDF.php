@@ -41,6 +41,12 @@
  			$repAdmin->createReporteClientes();
 
  		break;
+
+ 		case 'genera_reporte_materiales':
+
+ 			$repAdmin->createReporteMateriales();
+
+ 		break;
  	};
  	//--------------------------------------------------------------------------------------------------------
 

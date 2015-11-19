@@ -32,6 +32,13 @@
 			return GenericoDAO::EjecutarConsulta($this->q_general);
 		}
 
+		public function getMaterialesReporte(){
+
+			$this->q_general = "select material.pkID,material.nombre,material.precio,material.marca, clase.nombre as nom_clase FROM `material` INNER JOIN clase ON clase.pkID=material.fkID_clase";				
+			
+			return GenericoDAO::EjecutarConsulta($this->q_general);
+		}
+
 		public function getMaterialId($q_material){						
 			
 			return GenericoDAO::EjecutarConsulta($q_material);
@@ -40,6 +47,21 @@
 		public function getMaterialPropiedades($id_material){
 
 			$this->q_propiedades = "select material_propiedad.pkID, propiedad.nombre, material_propiedad.valor, u_medida.abreviatura
+
+									FROM `material_propiedad`
+
+									inner join propiedad on propiedad.pkID = material_propiedad.fkID_propiedad
+
+									inner join u_medida on u_medida.pkID = material_propiedad.fkID_uMedida
+
+									where material_propiedad.fkID_material =".$id_material;			
+			
+			return GenericoDAO::EjecutarConsulta($this->q_propiedades);
+		}
+
+		public function getMaterialPropiedadesR($id_material){
+
+			$this->q_propiedades = "select propiedad.nombre, material_propiedad.valor, u_medida.abreviatura
 
 									FROM `material_propiedad`
 

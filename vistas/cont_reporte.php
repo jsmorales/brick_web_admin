@@ -28,6 +28,14 @@
 
                     </div>
 
+                    <div class="col-lg-4 text-center">                   
+                        <h2>Reporte <br> <small>Materiales</small> </h2>
+                      <br>                        
+                          <a href="../controller/ajaxGeneraPDF.php?tipo=genera_reporte_materiales" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Generar PDF</a>                        
+                      <hr>
+
+                    </div>
+
                     
                 </div>
         </div>
