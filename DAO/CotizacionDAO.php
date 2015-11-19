@@ -29,6 +29,16 @@
 			return GenericoDAO::EjecutarConsulta($this->q_general);
 		}
 
+		public function getCotizacionReporte(){
+
+			$this->q_general = "select cotizacion.pkID,cotizacion.fecha,cotizacion.valor_total, cliente.num_cc, cliente.nom_cliente AS nom_cliente, cliente.ape_cliente AS ap_cliente, usuarios.alias
+								FROM  `cotizacion` 
+								INNER JOIN cliente ON cliente.pkID = cotizacion.fkID_cliente
+								INNER JOIN usuarios ON usuarios.pkID = cotizacion.fkID_usuario ORDER BY `cotizacion`.`pkID` ASC";
+
+			return GenericoDAO::EjecutarConsulta($this->q_general);
+		}
+
 		public function getCotizacionUser($id_usuario){
 
 			$this->q_general = "select cotizacion . * , cliente.num_cc, cliente.nom_cliente AS nom_cliente, cliente.ape_cliente AS ap_cliente, usuarios.nombres AS nom_usuario, usuarios.apellidos AS ap_usuario, usuarios.alias
@@ -76,5 +86,10 @@
 
 		/*-----------------------------------------*/
 	};
+
+	/*
+	$cot = new cotizacion();
+
+	print_r($cot->getCotizacionReporte());*/
 
  ?>

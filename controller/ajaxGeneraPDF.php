@@ -47,6 +47,12 @@
  			$repAdmin->createReporteMateriales();
 
  		break;
+
+ 		case 'genera_reporte_cotizaciones':
+
+ 			$repAdmin->createReporteCotizaciones();
+
+ 		break;
  	};
  	//--------------------------------------------------------------------------------------------------------
 

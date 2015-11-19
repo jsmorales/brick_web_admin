@@ -14,9 +14,12 @@
 
 	*/ 
 	
-	include '../DAO/UsuariosDAO.php';
+	include '../DAO/UsuariosDAO.php';	
 	include '../DAO/ClientesDAO.php';
 	include '../DAO/MaterialesDAO.php';
+
+	//require '../DAO/CotizacionDAO.php';
+	
 	
 	class repAdminPdf {
 
@@ -61,7 +64,16 @@
 		public $header_materialesReg;
 		public $bobyTabla_materialesReg;
 		public $total_materiales;
-		
+		//----------------------------
+		//variables cotizaciones
+		//instancia dao cotizaciones
+		public $cotizacionesInst;
+		//datos de la instancia
+		public $dataCotizaciones;
+		//tabla cotizaciones
+		public $header_cotizaciones;
+		public $bobyTabla_cotizaciones;
+		public $total_cotizaciones;
 		//----------------------------
 		
 		public function __construct(){
@@ -70,6 +82,7 @@
 			$this->usuariosInst = new UsuariosDAO();
 			$this->clientesInst = new clientes();
 			$this->materialesInst = new materiales();
+			$this->cotizacionesInst = new cotizacion();
 			$this->time = time();
 		}
 
@@ -94,6 +107,17 @@
 		    $this->pdf->Ln();
 			//------------------------------------------------------
  		}
+
+ 		// Pie de página
+		function Footer()
+		{
+		    // Posición: a 1,5 cm del final
+		    $this->pdf->SetY(1);
+		    // Arial italic 8
+		    $this->pdf->SetFont('Arial','I',8);
+		    // Número de página
+		    $this->pdf->Cell(0,10,'Pagina '.$this->pdf->PageNo().'/{nb}',0,0,'C');
+		}
 
  		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -160,14 +184,14 @@
 		//----------------------------------------------------------		
 
  		function createReporteUsuarios(){
-
+ 			$this->pdf->AliasNbPages();
  			$this->pdf->AddPage();
  			$this->logoReporte();
 
  			$this->loadUsuarios();
 
  			$this->tablaUsuarios();
-
+			$this->Footer();
  			$this->pdf->Output();
  		}
 
@@ -212,18 +236,70 @@
 
 
  		function createReporteClientes(){
-
+ 			$this->pdf->AliasNbPages();
  			$this->pdf->AddPage();
  			$this->logoReporte();
 
  			$this->loadClientes();
 
  			$this->tablaClientes();
-
+			$this->Footer();
  			$this->pdf->Output();
  		}
  		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 		
+ 		/**/
+ 		function loadCotizaciones(){
+
+			$this->dataCotizaciones = $this->cotizacionesInst->getCotizacionReporte();
+
+			$this->header_cotizaciones = array("Id","Fecha","Total","num.cc","Nombre","Apellido","Usuario");
+			$this->bobyTabla_cotizaciones = array_values($this->dataCotizaciones);
+			$this->total_cotizaciones = count($this->dataCotizaciones);
+	
+		}
+
+		function tablaCotizaciones(){
+
+ 			$this->pdf->Cell(40,10,'Reporte de General Cotizaciones:');
+			$this->pdf->Ln();
+			$this->pdf->Ln();	
+			
+			$this->pdf->SetFont('Times','B',12);
+			// Cabecera
+			    foreach($this->header_cotizaciones as $col)
+			        $this->pdf->Cell(28,7,$col,1);
+			    	$this->pdf->Ln();
+			    // Datos
+			$this->pdf->SetFont('Times','',8);
+			    foreach($this->bobyTabla_cotizaciones as $row)
+			    {
+			        foreach($row as $col)		        	
+
+			            $this->pdf->Cell(28,6,$col,1);
+			        	$this->pdf->Ln();
+			    }
+
+			$this->pdf->SetFont('Times','B',12);
+			$this->pdf->Ln();
+			$this->pdf->Cell(40,10,'Total de Cotizaciones: '.$this->total_cotizaciones);
+			
+ 		}
+
+ 		function createReporteCotizaciones(){
+
+ 			$this->pdf->AliasNbPages();
+ 			$this->pdf->AddPage();
+ 			$this->logoReporte();
+
+ 			$this->loadCotizaciones();
+
+ 			$this->tablaCotizaciones();
+
+ 			$this->Footer();
+
+ 			$this->pdf->Output(); 			
+ 		}
+
  		//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
  		function loadMateriales(){
@@ -306,14 +382,14 @@
 		}
 
  		function createReporteMateriales(){
-
+			$this->pdf->AliasNbPages();
  			$this->pdf->AddPage();
  			$this->logoReporte();
 
  			$this->loadMateriales();
 
  			$this->tablaMateriales();
-
+			//$this->Footer();
  			$this->pdf->Output();
  		}
 
