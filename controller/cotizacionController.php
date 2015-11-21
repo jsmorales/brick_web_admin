@@ -74,7 +74,9 @@
                 echo'            </td>
                                  <td><strong>'.$valor_total.'</strong></td>                                                                  
 		                         <td>
-		                             <a id="btn_genera" name="" type="button" class="btn btn-primary" data-toggle="modal" href="../controller/ajaxGeneraPDF.php?tipo=genera_cotizacion&pkID='.$id.'" target="_blank" ><span class="glyphicon glyphicon-pencil"></span>&nbspGenera PDF</a>		                             
+		                             <a id="btn_genera" name="" type="button" class="btn btn-primary" data-toggle="modal" href="../controller/ajaxGeneraPDF.php?tipo=genera_cotizacion&pkID='.$id.'" target="_blank" ><span class="glyphicon glyphicon-pencil"></span>&nbspGenera PDF</a>
+		                             <br><br>
+		                             <button id="btn_eliminar" name="elimina_cotizacion" type="button" class="btn btn-danger" data-id-cotizacion = "'.$id.'" ><span class="glyphicon glyphicon-remove"></span>&nbspEliminar</button>
 		                         </td>
 		                     </tr>';
                 };

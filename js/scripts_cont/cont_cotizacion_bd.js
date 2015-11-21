@@ -11,7 +11,7 @@ $(function(){
 	//variable de accion del boton del formulario
 	var action = "";
 	//variable para el id del registro
-	//var id_cliente = "";
+	var id_cotizacion = "";
 	//---------------------------------------------------------
 	function valida_action(action){
 
@@ -79,6 +79,41 @@ $(function(){
 
 	    };
 	  //cierra crea
+
+	  function elimina_cotizacion(id_cotizacion){
+
+	    console.log('Eliminar el cotizacion: '+id_cotizacion);
+
+	    var confirma = confirm("En realidad quiere eliminar este cotizacion?");
+
+	    console.log(confirma);
+	    /**/
+	    if(confirma == true){
+	      //si confirma es true ejecuta ajax
+	      $.ajax({
+	            url: '../controller/ajaxController12.php',
+	            data: "pkID="+id_cotizacion+"&tipo=eliminar&nom_tabla=cotizacion",
+	        })
+	        .done(function(data) {            
+	            //---------------------
+	            console.log(data);
+
+	            alert(data.mensaje.mensaje);
+	            
+	            location.reload();
+	        })
+	        .fail(function() {
+	            console.log("error");
+	        })
+	        .always(function() {
+	            console.log("complete");
+	        });
+	    }else{
+	      //no hace nada
+	    }
+    };
+    //cierra funcion eliminar cotizacion
+
 
 	function crea_objt_cotiza(id_reg_general){		
 
@@ -165,6 +200,15 @@ $(function(){
 
 		console.log("accion a ejecutar: "+action);
 	});
+
+
+	$("[name*='elimina_cotizacion']").click(function(event) {
+	    /* Act on the event */
+	    id_cotizacion = $(this).attr('data-id-cotizacion');
+	    //console.log(id_cotizacion);
+	    elimina_cotizacion(id_cotizacion);
+
+	  });
 
 	//------------------------------------------------------------------------------
 	//funciones de autocompletado de clientes

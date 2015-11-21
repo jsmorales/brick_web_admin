@@ -240,7 +240,7 @@
                                                                     ?> >
                           <input id="cedula_user" type="text" value=<?php echo $_COOKIE["log_brick_num_cc"] ?> >
                         </div>
-
+                        <br>
                         <div class="table-responsive">
                         <!-- tabla de clientes -->
                           <table id="tabla_clientes" class="table table-bordered table-hover table-striped">
