@@ -238,3 +238,15 @@ a:hover {
     font-weight: 400;
     letter-spacing: 3px;
 }
+
+.inicio-admin-icon{
+    color: #337AB7;
+}
+
+.inicio-admin-icon:hover{
+    color: #E81313; 
+}
+
+.inicio-admin-icon:before{
+    margin-left: -140px;
+}

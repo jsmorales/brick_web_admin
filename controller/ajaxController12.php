@@ -150,7 +150,9 @@
 	 		$generico = new GenericoDAO();
 	 		$crea_sql = new crea_sql();
 
-	 		$q_elimina = $crea_sql->crea_delete($_GET);	 		
+	 		$q_elimina = $crea_sql->crea_delete($_GET);
+
+	 		$r["query"] = $q_elimina;	 		
 
 	 		$resultado = $generico->EjecutaEliminar($q_elimina);
 	 		/**/

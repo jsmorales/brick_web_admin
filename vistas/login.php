@@ -38,7 +38,7 @@
             <div class="col-md-4 col-md-offset-4">                
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title text-center">Inicio de Sesión</h3>
+                        <h3 class="panel-title text-center"><a href="../../brick_web/" title="Regresar al inicio."><span class="glyphicon glyphicon-home inicio-admin-icon"></span></a> Inicio de Sesión</h3>
                     </div>
                     <div class="panel-body">
                         <!-- --> 
