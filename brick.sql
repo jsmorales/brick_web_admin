@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-11-2015 a las 05:06:04
--- Versión del servidor: 5.5.44-0ubuntu0.14.04.1
--- Versión de PHP: 5.5.9-1ubuntu4.13
+-- Tiempo de generación: 01-12-2015 a las 21:38:55
+-- Versión del servidor: 5.5.46-0ubuntu0.14.04.2
+-- Versión de PHP: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,9 +29,18 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `clase` (
   `pkID` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) NOT NULL,
-  `fkID_tipo` int(11) NOT NULL,
+  `fkID_tipo` int(11) DEFAULT NULL,
   PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `clase`
+--
+
+INSERT INTO `clase` (`pkID`, `nombre`, `fkID_tipo`) VALUES
+(1, 'Ladrillo', 0),
+(2, 'Cemento', 0),
+(5, 'No aplica', NULL);
 
 -- --------------------------------------------------------
 
@@ -41,7 +50,9 @@ CREATE TABLE IF NOT EXISTS `clase` (
 
 CREATE TABLE IF NOT EXISTS `clase_tipo` (
   `fkID_clase` int(11) NOT NULL,
-  `fkID_tipo` int(11) NOT NULL
+  `fkID_tipo` int(11) NOT NULL,
+  KEY `fkID_clase` (`fkID_clase`,`fkID_tipo`),
+  KEY `fkID_tipo` (`fkID_tipo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -52,13 +63,32 @@ CREATE TABLE IF NOT EXISTS `clase_tipo` (
 
 CREATE TABLE IF NOT EXISTS `cliente` (
   `pkID` int(11) NOT NULL AUTO_INCREMENT,
-  `nombres` varchar(50) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
+  `num_cc` int(11) NOT NULL,
+  `nom_cliente` varchar(50) NOT NULL,
+  `ape_cliente` varchar(50) NOT NULL,
   `telefono` varchar(20) NOT NULL,
-  `direccion` varchar(10) NOT NULL,
+  `direccion` varchar(50) NOT NULL,
   `email` varchar(20) NOT NULL,
   PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Volcado de datos para la tabla `cliente`
+--
+
+INSERT INTO `cliente` (`pkID`, `num_cc`, `nom_cliente`, `ape_cliente`, `telefono`, `direccion`, `email`) VALUES
+(1, 53091662, 'Angela', 'Galindo', '3144694264', 'cra 45 67', 'bianggela@gmail.com'),
+(3, 24534123, 'Marleny', 'Rodríguez', '313275096', 'cra 20 este n 32-08', 'r_marleny@gmail.com'),
+(5, 12342345, 'Ricardo', 'Umbarila', '3124567323', 'cra 34 sur kennedy', 'rumbarila@gmail.com'),
+(6, 52056889, 'Heriberto', 'Morales', '3132587845', 'cra 56 este soacha', 'heri_@gmail.com'),
+(7, 1056897451, 'Juan', 'Pabon', '3157894512', 'cra 45 - 23---111', 'juanpabon@gmail.com'),
+(8, 4567890, 'Pepito', 'perez', '2134567890', '34567890', 'hsadfk@gmail.com'),
+(9, 345672345, 'Nelson', 'Galindo', '3152345678', 'cra 46', 'nelson@gmail.com'),
+(10, 23456783, 'Aritzali', 'Monroy', '3123451234', 'cra 45 este', 'maria@gmail.com'),
+(11, 1024513567, 'Sebastian', 'Morales', '3132785624', 'cra 20 este 32 08', 'jhellmetal2000@gmail'),
+(12, 5984489, 'Nelson', 'Galindo', '3165060163', 'Carrera 7ma', 'nel@ff.com.co'),
+(14, 28892995, 'Maria', 'Monroy', '3154342187', 'clle 12 ', 'mm@ddd.com.co'),
+(16, 79643776, 'JUAN CARLOS', 'PABON GONZALEZ', '7398477', 'cLL 67 No 3-15', 'pabonjc@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -93,11 +123,40 @@ CREATE TABLE IF NOT EXISTS `cotizacion` (
   `pkID` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` datetime NOT NULL,
   `valor_total` int(11) NOT NULL,
-  `fkID_cliente` int(11) NOT NULL,
+  `fkID_cliente` int(11) DEFAULT NULL,
   `fkID_usuario` int(11) NOT NULL,
   PRIMARY KEY (`pkID`),
-  KEY `fkID_cliente` (`fkID_cliente`,`fkID_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `fkID_cliente` (`fkID_cliente`,`fkID_usuario`),
+  KEY `fkID_cliente_2` (`fkID_cliente`),
+  KEY `fkID_usuario` (`fkID_usuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+
+--
+-- Volcado de datos para la tabla `cotizacion`
+--
+
+INSERT INTO `cotizacion` (`pkID`, `fecha`, `valor_total`, `fkID_cliente`, `fkID_usuario`) VALUES
+(1, '2015-11-11 21:09:57', 191600, 1, 1),
+(2, '2015-11-12 20:19:31', 130000, 3, 1),
+(3, '2015-11-12 21:07:35', 310000, 5, 2),
+(4, '2015-11-12 23:35:50', 4274800, 6, 1),
+(6, '2015-11-13 21:08:47', 191600, 7, 1),
+(7, '2015-11-14 07:58:10', 1688800, 5, 3),
+(8, '2015-11-14 09:01:55', 1401600, 7, 3),
+(9, '2015-11-14 09:44:46', 476400, 5, 1),
+(10, '2015-11-26 00:00:00', 9700576, 1, 3),
+(11, '2015-11-15 13:44:41', 2147483647, 8, 1),
+(32, '2015-11-15 14:30:15', 2147483647, 1, 1),
+(33, '2015-11-15 14:33:55', 1160400, 6, 1),
+(34, '2015-11-15 00:00:00', 1160400, 1, 1),
+(37, '2015-11-15 20:57:16', 242765760, 14, 9),
+(40, '2015-11-15 22:37:02', 130000, 11, 6),
+(41, '2015-11-15 22:41:22', 94000, 10, 5),
+(42, '2015-11-17 19:43:28', 294400, 3, 1),
+(43, '2015-11-21 10:47:33', 2419644, 16, 11),
+(44, '2015-11-21 10:59:18', 1177700, 16, 1),
+(45, '2015-11-21 12:03:44', 3667500, 16, 11),
+(46, '2015-11-28 13:01:53', 1066000, 9, 2);
 
 -- --------------------------------------------------------
 
@@ -106,11 +165,69 @@ CREATE TABLE IF NOT EXISTS `cotizacion` (
 --
 
 CREATE TABLE IF NOT EXISTS `cotizacion_material` (
+  `pkID` int(11) NOT NULL AUTO_INCREMENT,
   `fkID_cotizacion` int(11) NOT NULL,
   `fkID_material` int(11) NOT NULL,
   `cantidad_material` int(11) NOT NULL,
-  KEY `fkID_cotizacion` (`fkID_cotizacion`,`fkID_material`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `costo_material` int(11) NOT NULL,
+  PRIMARY KEY (`pkID`),
+  KEY `fkID_cotizacion` (`fkID_cotizacion`,`fkID_material`),
+  KEY `fkID_material` (`fkID_material`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
+
+--
+-- Volcado de datos para la tabla `cotizacion_material`
+--
+
+INSERT INTO `cotizacion_material` (`pkID`, `fkID_cotizacion`, `fkID_material`, `cantidad_material`, `costo_material`) VALUES
+(1, 1, 2, 53, 169600),
+(2, 1, 14, 1, 22000),
+(3, 2, 1, 43, 86000),
+(4, 2, 14, 2, 44000),
+(5, 3, 1, 122, 244000),
+(6, 3, 14, 3, 66000),
+(7, 4, 2, 1219, 3900800),
+(8, 4, 14, 17, 374000),
+(9, 6, 2, 53, 169600),
+(10, 6, 14, 1, 22000),
+(11, 7, 2, 459, 1468800),
+(12, 7, 14, 10, 220000),
+(13, 8, 2, 383, 1225600),
+(14, 8, 14, 8, 176000),
+(15, 9, 2, 287, 344400),
+(16, 9, 14, 6, 132000),
+(17, 10, 8, 3996, 9414576),
+(18, 10, 14, 13, 286000),
+(19, 11, 3, 2147483647, 2147483647),
+(20, 11, 14, 2147483647, 2147483647),
+(21, 12, 1, 2147483647, 2147483647),
+(22, 12, 14, 2147483647, 3),
+(23, 32, 9, 338200278, 2147483647),
+(24, 32, 14, 4350101, 2147483647),
+(25, 33, 2, 692, 830400),
+(26, 33, 14, 15, 330000),
+(27, 34, 2, 692, 830400),
+(28, 34, 14, 15, 330000),
+(29, 37, 8, 99960, 235505760),
+(30, 37, 14, 330, 7260000),
+(31, 38, 2, 48, 57600),
+(32, 38, 14, 1, 22000),
+(33, 39, 1, 37, 74000),
+(34, 39, 14, 1, 22000),
+(35, 40, 1, 43, 86000),
+(36, 40, 14, 2, 44000),
+(37, 41, 1, 36, 72000),
+(38, 41, 14, 1, 22000),
+(39, 42, 2, 172, 206400),
+(40, 42, 14, 4, 88000),
+(41, 43, 8, 999, 2353644),
+(42, 43, 14, 3, 66000),
+(43, 44, 22, 893, 803700),
+(44, 44, 14, 17, 374000),
+(45, 45, 9, 2670, 3337500),
+(46, 45, 14, 15, 330000),
+(47, 46, 2, 705, 846000),
+(48, 46, 14, 10, 220000);
 
 -- --------------------------------------------------------
 
@@ -151,22 +268,27 @@ CREATE TABLE IF NOT EXISTS `material` (
   `imagen` varchar(100) DEFAULT NULL,
   `fkID_clase` int(11) DEFAULT NULL,
   `fkID_tipo` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+  PRIMARY KEY (`pkID`),
+  KEY `fkID_clase` (`fkID_clase`,`fkID_tipo`),
+  KEY `fkID_tipo` (`fkID_tipo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
 -- Volcado de datos para la tabla `material`
 --
 
 INSERT INTO `material` (`pkID`, `nombre`, `precio`, `marca`, `imagen`, `fkID_clase`, `fkID_tipo`) VALUES
-(1, 'Bloque naranja hueco', 2147483647, 'Santafé_1', 'ladrillo de amor.jpg', NULL, NULL),
-(2, 'Ladrillo Común', 3200, 'Ladrillo-S.A.D', 'ladrillos.gif', NULL, NULL),
-(3, 'Bloque Macizo', 2300, '', 'vga_hueco12x18x25.jpg.png', NULL, NULL),
+(1, 'Bloque naranja hueco', 2000, 'Santafé_1', 'Perforado5.jpg', 1, NULL),
+(2, 'Ladrillo Común', 1200, 'Ladrillo-S.A.D', 'ladrillos.gif', 1, NULL),
+(3, 'Bloque Macizo', 2300, 'Santa Fé', 'vga_hueco12x18x25.jpg.png', 1, NULL),
 (4, 'Ladrillo 4', 2450, 'Ladrillos Fr.', 'ladrillos.gif', NULL, NULL),
-(8, 'Ladrillo de prueba', 2356, 'Santa fe', 'lperfnovisto.jpg', NULL, NULL),
-(9, '111', 1233, 'asdfa', 'hueco doble.jpg', NULL, NULL),
-(12, 'Ladrillo hp pavilion', 1500, 'Santa prueba', 'ladrillo04.jpg', NULL, NULL),
-(13, 'Ladrillo Torneado ', 15000, 'Ladrillos el REY', '20140406_173608_1.jpg', NULL, NULL);
+(8, 'Adornado 1', 2356, 'Santa fe', 'lperfnovisto.jpg', 1, NULL),
+(9, 'Hueco redondo', 1250, 'Ladrillos New Wave', 'hueco doble.jpg', 1, NULL),
+(12, 'Ladrillo 1', 1500, 'Santa Fe soacha', 'ladrillo04.jpg', 1, NULL),
+(13, 'Ladrillo Torneado ', 15000, 'Ladrillos el REY', '20140406_173608_1.jpg', NULL, NULL),
+(14, 'Cemento Argos General', 22000, 'Argos', 'm20110519053907.jpg', 2, NULL),
+(21, 'Lad_xzf001', 2000, 'Ladrillera Felipe', 'ladrillo-gran-formato-rasillon-30x15x4-6140097z0-00000067.jpg', 1, NULL),
+(22, 'Ladrillo Super7', 900, 'Super7', 'ladrillo super7.jpg', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -176,27 +298,30 @@ INSERT INTO `material` (`pkID`, `nombre`, `precio`, `marca`, `imagen`, `fkID_cla
 
 CREATE TABLE IF NOT EXISTS `material_propiedad` (
   `pkID` int(11) NOT NULL AUTO_INCREMENT,
-  `fkID_material` int(11) DEFAULT NULL,
+  `fkID_material` int(11) NOT NULL,
   `fkID_propiedad` int(11) NOT NULL,
   `valor` varchar(200) NOT NULL,
   `fkID_uMedida` int(11) NOT NULL,
-  PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+  PRIMARY KEY (`pkID`),
+  KEY `fkID_material` (`fkID_material`),
+  KEY `fkID_propiedad` (`fkID_propiedad`),
+  KEY `fkID_uMedida` (`fkID_uMedida`),
+  KEY `fkID_material_2` (`fkID_material`),
+  KEY `fkID_propiedad_2` (`fkID_propiedad`),
+  KEY `fkID_uMedida_2` (`fkID_uMedida`),
+  KEY `fkID_material_3` (`fkID_material`,`fkID_propiedad`,`fkID_uMedida`),
+  KEY `fkID_material_4` (`fkID_material`),
+  KEY `fkID_material_5` (`fkID_material`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=59 ;
 
 --
 -- Volcado de datos para la tabla `material_propiedad`
 --
 
 INSERT INTO `material_propiedad` (`pkID`, `fkID_material`, `fkID_propiedad`, `valor`, `fkID_uMedida`) VALUES
-(2, 1, 2, '3.6', 1),
-(4, 3, 1, '2.9', 1),
-(5, 1, 3, '5.4', 1),
 (6, 4, 1, '3.5', 1),
 (7, 4, 2, '1.3', 1),
 (8, 4, 3, '5.6', 1),
-(9, 3, 2, '4.3', 1),
-(10, 3, 3, '3.25', 1),
-(11, 1, 1, '2.4', 1),
 (13, 5, 1, '3.5', 1),
 (14, 5, 2, '4.2', 1),
 (15, 5, 3, '6.3', 1),
@@ -215,7 +340,21 @@ INSERT INTO `material_propiedad` (`pkID`, `fkID_material`, `fkID_propiedad`, `va
 (28, 12, 3, '8.49', 1),
 (33, 13, 2, '678', 1),
 (34, 13, 3, '678', 1),
-(35, 13, 1, '4,90', 1);
+(35, 13, 1, '4,90', 1),
+(36, 14, 4, '40', 3),
+(37, 1, 1, '33', 1),
+(38, 1, 2, '23', 1),
+(41, 3, 2, '20', 1),
+(43, 3, 1, '40', 1),
+(44, 3, 3, '10', 1),
+(48, 2, 1, '23', 1),
+(49, 2, 2, '7', 1),
+(50, 2, 3, '12', 1),
+(51, 1, 3, '12', 1),
+(53, 21, 1, '22', 1),
+(56, 22, 2, '8', 1),
+(57, 22, 3, '10', 1),
+(58, 22, 1, '25', 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `propiedad` (
   `pkID` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `propiedad`
@@ -236,7 +375,8 @@ CREATE TABLE IF NOT EXISTS `propiedad` (
 INSERT INTO `propiedad` (`pkID`, `nombre`) VALUES
 (1, 'ancho'),
 (2, 'alto'),
-(3, 'largo');
+(3, 'largo'),
+(4, 'peso');
 
 -- --------------------------------------------------------
 
@@ -260,7 +400,7 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
   `pkID` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `tipo_usuario`
@@ -268,7 +408,8 @@ CREATE TABLE IF NOT EXISTS `tipo_usuario` (
 
 INSERT INTO `tipo_usuario` (`pkID`, `nombre`) VALUES
 (1, 'Administrador'),
-(2, 'Empleado');
+(2, 'Empleado'),
+(3, 'Cliente');
 
 -- --------------------------------------------------------
 
@@ -284,8 +425,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `apellidos` varchar(50) NOT NULL,
   `numero_cc` int(11) NOT NULL,
   `fkID_tipo` int(11) DEFAULT NULL,
-  PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  PRIMARY KEY (`pkID`),
+  KEY `fkID_tipo` (`fkID_tipo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -293,7 +435,14 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`pkID`, `alias`, `pass`, `nombres`, `apellidos`, `numero_cc`, `fkID_tipo`) VALUES
 (1, 'jsmorales', '8cb2237d0679ca88db6464eac60da96345513964', 'Johan', 'Morales', 1024524163, 1),
-(2, 'ventas', '8cb2237d0679ca88db6464eac60da96345513964', 'Juan', 'Gonzales', 79643776, 2);
+(2, 'ventas', '8cb2237d0679ca88db6464eac60da96345513964', 'Juan', 'Gonzales', 79643776, 2),
+(3, 's_rodriguez', '8cb2237d0679ca88db6464eac60da96345513964', 'Sebastián', 'Rodríguez', 1023523124, 3),
+(4, 'n_galindo', '8cb2237d0679ca88db6464eac60da96345513964', 'Nelson', 'Galindo', 345672345, 3),
+(5, 'a_monroy', '8cb2237d0679ca88db6464eac60da96345513964', 'Aritzali', 'Monroy', 23456783, 3),
+(6, 's_morales', '8cb2237d0679ca88db6464eac60da96345513964', 'Sebastian', 'Morales', 1024513567, 3),
+(7, 'Nelson Galindo', 'd70abe27d7415dffc4ea095b377cb7f8d1ee5c67', 'Nelson', 'Galindo', 5984489, 3),
+(9, 'Maria Monroy', 'e7eb59e909cbdf4bb4e92bbf0a99ea35de17d662', 'Maria', 'Monroy', 28892995, 3),
+(11, 'j_pabon', '8cb2237d0679ca88db6464eac60da96345513964', 'JUAN CARLOS', 'PABON GONZALEZ', 79643776, 3);
 
 -- --------------------------------------------------------
 
@@ -306,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `u_medida` (
   `nombre` varchar(50) NOT NULL,
   `abreviatura` varchar(20) NOT NULL,
   PRIMARY KEY (`pkID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `u_medida`
@@ -314,7 +463,39 @@ CREATE TABLE IF NOT EXISTS `u_medida` (
 
 INSERT INTO `u_medida` (`pkID`, `nombre`, `abreviatura`) VALUES
 (1, 'centímetro', 'cm'),
-(2, 'metro', 'm');
+(2, 'metro', 'm'),
+(3, 'Kilogramo', 'Kg');
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `clase_tipo`
+--
+ALTER TABLE `clase_tipo`
+  ADD CONSTRAINT `clase_tipo_ibfk_1` FOREIGN KEY (`fkID_clase`) REFERENCES `clase` (`pkID`),
+  ADD CONSTRAINT `clase_tipo_ibfk_2` FOREIGN KEY (`fkID_tipo`) REFERENCES `tipo` (`pkID`);
+
+--
+-- Filtros para la tabla `material`
+--
+ALTER TABLE `material`
+  ADD CONSTRAINT `material_ibfk_1` FOREIGN KEY (`fkID_tipo`) REFERENCES `tipo` (`pkID`),
+  ADD CONSTRAINT `material_ibfk_2` FOREIGN KEY (`fkID_clase`) REFERENCES `clase` (`pkID`);
+
+--
+-- Filtros para la tabla `material_propiedad`
+--
+ALTER TABLE `material_propiedad`
+  ADD CONSTRAINT `material_propiedad_ibfk_1` FOREIGN KEY (`fkID_propiedad`) REFERENCES `propiedad` (`pkID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `material_propiedad_ibfk_2` FOREIGN KEY (`fkID_uMedida`) REFERENCES `u_medida` (`pkID`);
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`fkID_tipo`) REFERENCES `tipo_usuario` (`pkID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
