@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="col-lg-4 text-center">                   
-                        <h2> Clientes </h2>
+                        <h2> Clientes General</h2>
                       <br>                        
                           <a href="../controller/ajaxGeneraPDF.php?tipo=genera_reporte_clientes" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Generar PDF</a>                        
                       <hr>

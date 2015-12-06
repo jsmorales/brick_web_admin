@@ -171,6 +171,28 @@ $(function(){
 	//ejecución
 	//-------------------------------------------------------------------------------
 
+	$("#num_cc").keyup(function(event) {
+		/* Act on the event */
+		if ((event.keyCode < 48) || (event.keyCode > 57)){
+			console.log(String.fromCharCode(event.which));
+			alert("El número de identificación NO puede llevar valores alfanuméricos.");			
+			$(this).val("");
+		}
+	});
+
+	$("#num_cc").change(function(event) {
+		/* valida que no tenga menos de 8 caracteres */
+
+		var valores_idCli = $(this).val().length;
+		console.log(valores_idCli);
+		if(valores_idCli < 8){
+			alert("El número de identificación no puede ser menor a 8 valores.");
+			$(this).val("");
+			$(this).focus();
+		}
+
+	});
+
 	$("#email").change(function(event) {
 		/* Act on the event */
 		validarEmail($(this).val());

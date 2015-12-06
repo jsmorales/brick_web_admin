@@ -6,7 +6,7 @@ $(function(){
 	var precio_lad = 0;
 	var precio_cem = 0;
 	var densidad_cemento = 1500;
-	var iva = 1.16;
+	var iva = 0.16;
 	//++++++++++++++++++
 	var alt_par,anch_par,alt_lad,anc_lad,mez = 0;
 	var anch_par_lad, alt_par_lad, largo_lad, total_lad, precio_lad_total = 0;
@@ -15,6 +15,7 @@ $(function(){
 	var precio_cem_total, peso_cemento, total_unidad_cemento, total_cemento = 0;
 	//++++++++++++++++++
 	var total_cotiza = 0;
+	var total_iva = 0;
 	//++++++++++++++++++
 	var objt_f_calculaP = {};
 	//--------------------------------------------------------------------------------
@@ -292,8 +293,21 @@ $(function(){
 	   		console.log('Total de precio unidades cemento: '+ precio_cem_total);
 	   		$("#precio_cem_total").val(precio_cem_total);
 
-	   		total_cotiza = precio_cem_total + precio_lad_total;
+	   		total_cotiza = (precio_cem_total + precio_lad_total);
+
+	   		$("#total_costo").html("");
+	   		$("#total_costo").append("Total costo = $"+total_cotiza);
+
+	   		total_iva = (precio_cem_total + precio_lad_total) * iva;
+
+	   		console.log('iva total: '+total_iva+' total sin IVA: '+total_cotiza);
+
+	   		total_cotiza = total_cotiza + total_iva;
+
+	   		$("#total_iva").html("");
 	   		$("#valor_total").val(total_cotiza);
+	   		$("#total_iva").append("Total IVA= $"+total_iva);
+	   		
 	    	//-----------------------------------------------------------------------
 	    }else{
 	    	alert("Por favor complete los campos para poder hacer el cálculo, asegúrese de seleccionar un ladrillo y un cemento que contenga las propiedades válidas.");

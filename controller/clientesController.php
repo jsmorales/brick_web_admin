@@ -22,6 +22,7 @@
 
                  $id = $this->clientes[$a]["pkID"];
                  $cc = $this->clientes[$a]["num_cc"];
+                 $razon = $this->clientes[$a]["razon_social"];
                  $nombre = $this->clientes[$a]["nom_cliente"];
                  $apellidos = $this->clientes[$a]["ape_cliente"];
                  $telefono = $this->clientes[$a]["telefono"];
@@ -32,6 +33,7 @@
                              <tr>
                                  <td>'.$id.'</td>
                                  <td>'.$cc.'</td>
+                                 <td>'.$razon.'</td>
                                  <td>'.$nombre.'</td>
                                  <td>'.$apellidos.'</td>                                                    
                                  <td>'.$telefono.'</td>
@@ -49,6 +51,7 @@
 	    	}else{
 
              echo "<tr>
+		               <td></td>
 		               <td></td>
 		               <td></td>
 		               <td></td>

@@ -23,46 +23,55 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="num_cc" class="col-sm-2 control-label">Número de Identificación</label>
+                        <label for="num_cc" class="col-sm-2 control-label">*Número de Identificación(NIT o número de cédula)</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="num_cc" name="num_cc" placeholder="Número de Cédula o identificación del Cliente" required = "true">
+                            <input type="text" class="form-control" id="num_cc" name="num_cc" placeholder="Número de Cédula o identificación del Cliente" required = "true">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="razon_social" class="col-sm-2 control-label">Razón Social</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="razon_social" name="razon_social" placeholder="Nombre de Empresa">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="nom_cliente" class="col-sm-2 control-label">Nombres</label>
+                        <label for="nom_cliente" class="col-sm-2 control-label">*Nombre(s)</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="nom_cliente" name="nom_cliente" placeholder="Nombres del Cliente" required = "true">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="ape_cliente" class="col-sm-2 control-label">Apellidos</label>
+                        <label for="ape_cliente" class="col-sm-2 control-label">*Apellidos</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="ape_cliente" name="ape_cliente" placeholder="Apellidos del Cliente" required = "true">
+                            <input type="text" class="form-control" id="ape_cliente" name="ape_cliente" placeholder="Apellidos del Cliente" required="true">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="telefono" class="col-sm-2 control-label">Teléfono</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono del Cliente" required = "true">
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono del Cliente">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="direccion" class="col-sm-2 control-label">Dirección</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección del Cliente" required = "true">
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección del Cliente">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email" class="col-sm-2 control-label">Correo Electrónico</label>
+                        <label for="email" class="col-sm-2 control-label">*Correo Electrónico</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico del Cliente" >
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico del Cliente" required="true">
                         </div>
                     </div>
+
+                    <label for="">* Datos Requeridos.</label>
 
                 </form>
 
@@ -99,6 +108,7 @@
                                         <tr>
                                             <th>ID Cliente</th>
                                             <th>Número de Identificación</th>
+                                            <th>Razón Social</th>
                                             <th>Nombres</th>
                                             <th>Apellidos</th>
                                             <th>Teléfono</th>

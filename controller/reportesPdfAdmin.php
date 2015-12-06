@@ -201,7 +201,7 @@
 
 			$this->dataClientes = $this->clientesInst->getClientes();
 
-			$this->header_clientes = array("Id","Num.cc","Nombres","Apellidos","tel.","direccion","email");
+			$this->header_clientes = array("Id","Num.cc","R.Social","Nombres","Apellidos","tel.","direccion","email");
 			$this->bobyTabla_clientes = array_values($this->dataClientes);
 			$this->total_cli = count($this->dataClientes);
 	
@@ -213,18 +213,18 @@
 			$this->pdf->Ln();
 			$this->pdf->Ln();	
 			
-			$this->pdf->SetFont('Times','B',12);
+			$this->pdf->SetFont('Times','B',10);
 			// Cabecera
 			    foreach($this->header_clientes as $col)
-			        $this->pdf->Cell(28,7,$col,1);
+			        $this->pdf->Cell(24,7,$col,1);
 			    	$this->pdf->Ln();
 			    // Datos
-			$this->pdf->SetFont('Times','',8);
+			$this->pdf->SetFont('Times','',7);
 			    foreach($this->bobyTabla_clientes as $row)
 			    {
 			        foreach($row as $col)		        	
 
-			            $this->pdf->Cell(28,6,$col,1);
+			            $this->pdf->Cell(24,6,$col,1);
 			        	$this->pdf->Ln();
 			    }
 

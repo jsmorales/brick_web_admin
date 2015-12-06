@@ -15,6 +15,7 @@
  		public $id_cotiza;
  		public $fecha;
  		//variables cliente
+ 		public $razon;
  		public $num_cc;
  		public $nom_cliente;
  		public $ap_cliente;
@@ -45,6 +46,7 @@
  			$this->id_cotiza = $this->data_gen[0]["pkID"];
 			$this->fecha = $this->data_gen[0]["fecha"];
 			$this->num_cc = $this->data_gen[0]["num_cc"];
+			$this->razon = $this->data_gen[0]["razon_social"];
 			$this->nom_cliente = $this->data_gen[0]["nom_cliente"];
 			$this->ap_cliente = $this->data_gen[0]["ap_cliente"];
 			$this->alias_user = $this->data_gen[0]["alias"];
@@ -82,6 +84,8 @@
 			$this->pdf->Cell(20,10,'Usuario:'.$this->alias_user);
 			$this->pdf->Ln();		
 			$this->pdf->Cell(40,10,'Numero de cedula: '.$this->num_cc);
+			$this->pdf->Ln();
+			$this->pdf->Cell(40,10,'Razon Social: '.$this->razon);
 			$this->pdf->Ln();
 			$this->pdf->Cell(40,10,'Nombre: '.$this->nom_cliente." ".$this->ap_cliente);
 			$this->pdf->Ln();
@@ -121,7 +125,7 @@
  			$this->tablaCotizacion();
 
  			$this->pdf->Ln();
-			$this->pdf->Cell(40,10,'Total : $'.$this->total_cotiza);
+			$this->pdf->Cell(40,10,'Total IVA Incluido: $'.$this->total_cotiza);
 
 			$this->pdf->Output();
  		}
